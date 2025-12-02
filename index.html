@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Трекер Звичок - Habit Tracker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        h1 {
+            color: #667eea;
+            font-size: 2.5em;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        nav a:hover {
+            background: #667eea;
+            color: white;
+        }
+        .hero {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+        h3 {
+            color: #764ba2;
+            margin: 25px 0 15px;
+            font-size: 1.5em;
+        }
+        h4 {
+            color: #555;
+            margin: 20px 0 10px;
+            font-size: 1.2em;
+        }
+        .hero-image {
+            max-width: 300px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .features {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        tbody tr:hover {
+            background: #f5f5f5;
+        }
+        .lists-section {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        li {
+            margin: 10px 0;
+            padding-left: 10px;
+        }
+        .nested-list {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        .form-section {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .radio-group, .checkbox-group {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        input[type="radio"], input[type="checkbox"] {
+            margin-right: 8px;
+            width: 20px;
+            height: 20px;
+        }
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .links-section {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        .link-button {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+        footer {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 30px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        }
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1> Трекер Звичок</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Головна</a></li>
+                    <li><a href="#features">Можливості</a></li>
+                    <li><a href="#habits">Мої звички</a></li>
+                    <li><a href="description.html">Про проєкт</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="hero" id="home">
+            <h2>Формуй корисні звички разом з нами!</h2>
+            <p>Трекер звичок допоможе тобі досягти своїх цілей через систематичне виконання необхідних дій</p>
+            <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=600" alt="Трекер звичок" class="hero-image">
+            <p><strong>Почни свій шлях до кращого себе вже сьогодні!</strong></p>
+        </section>
+
+        <section class="features" id="features">
+            <h2>Основні можливості</h2>
+            <h3>Порівняння функціоналу</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Функція</th>
+                        <th>Безкоштовна версія</th>
+                        <th>Преміум версія</th>
+                        <th>Опис</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Кількість звичок</td>
+                        <td>До 5</td>
+                        <td>Необмежено</td>
+                        <td>Відстежуйте всі необхідні звички</td>
+                    </tr>
+                    <tr>
+                        <td>Календар виконання</td>
+                        <td>✓</td>
+                        <td>✓</td>
+                        <td>Візуальне відображення прогресу</td>
+                    </tr>
+                    <tr>
+                        <td>Статистика</td>
+                        <td>Базова</td>
+                        <td>Розширена</td>
+                        <td>Детальний аналіз ваших досягнень</td>
+                    </tr>
+                    <tr>
+                        <td>Нагадування</td>
+                        <td>-</td>
+                        <td>✓</td>
+                        <td>Push-повідомлення про звички</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="lists-section" id="habits">
+            <h2>Категорії звичок</h2>
+            <h3>Популярні звички наших користувачів</h3>
+            <h4>ТОП-5 найпопулярніших звичок:</h4>
+            <ol>
+                <li><strong>Пити 2 літри води щодня</strong>
+                    <ul class="nested-list">
+                        <li>Покращує метаболізм</li>
+                        <li>Підтримує здоров'я шкіри</li>
+                    </ul>
+                </li>
+                <li><strong>Ранкова зарядка 15 хвилин</strong></li>
+                <li><strong>Читати 20 сторінок книги</strong></li>
+            </ol>
+
+            <h4>Категорії звичок:</h4>
+            <ul>
+                <li><strong>Здоров'я та фітнес</strong>
+                    <ul class="nested-list">
+                        <li>Тренування</li>
+                        <li>Правильне харчування</li>
+                    </ul>
+                </li>
+                <li><strong>Особистий розвиток</strong></li>
+                <li><strong>Продуктивність</strong></li>
+            </ul>
+        </section>
+
+        <section class="form-section">
+            <h2>Створи свою першу звичку</h2>
+            <form>
+                <div class="form-group">
+                    <label for="habitName">Назва звички*</label>
+                    <input type="text" id="habitName" placeholder="Наприклад: Пити 2л води" required>
+                </div>
+                <div class="form-group">
+                    <label for="habitCategory">Категорія*</label>
+                    <select id="habitCategory" required>
+                        <option value="">Обери категорію</option>
+                        <option value="health">Здоров'я та фітнес</option>
+                        <option value="development">Особистий розвиток</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="habitDescription">Опис звички</label>
+                    <textarea id="habitDescription" placeholder="Детальний опис..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="startDate">Дата початку*</label>
+                    <input type="date" id="startDate" required>
+                </div>
+                <div class="form-group">
+                    <label>Частота виконання*</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="frequency" value="daily" checked> Щодня</label>
+                        <label><input type="radio" name="frequency" value="weekly"> Кілька разів на тиждень</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Додаткові налаштування</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="reminder"> Увімкнути нагадування</label>
+                        <label><input type="checkbox" name="public"> Зробити публічною</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email для нагадувань</label>
+                    <input type="email" id="email" placeholder="your@email.com">
+                </div>
+                <div style="text-align: center;">
+                    <button type="submit">Створити звичку</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="links-section">
+            <h2>Корисні посилання</h2>
+            <a href="description.html" class="link-button"> Опис предметної галузі</a>
+            <a href="https://github.com/Freazg" class="link-button" target="_blank"> GitHub профіль</a>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Трекер Звичок | Розроблено Сас Євгеній, група ІО-31</p>
+            <p>Email: <a href="mailto:qwerty2015f5@gmail.com">qwerty2015f5@gmail.com</a></p>
+        </div>
+    </footer>
+</body>
+</html>

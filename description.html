@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Опис проекту - Трекер Звичок</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+        }
+        h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #764ba2;
+            margin: 30px 0 15px;
+            font-size: 1.8em;
+            border-left: 5px solid #667eea;
+            padding-left: 15px;
+        }
+        h3 {
+            color: #667eea;
+            margin: 25px 0 12px;
+            font-size: 1.4em;
+        }
+        h4 {
+            color: #555;
+            margin: 20px 0 10px;
+            font-size: 1.2em;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin: 15px 0 15px 30px;
+        }
+        li {
+            margin: 8px 0;
+        }
+        strong {
+            color: #764ba2;
+        }
+        .back-link {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+        .info-box {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .author-info {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 40px;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        tbody tr:hover {
+            background: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ТРЕКЕР ЗВИЧОК</h1>
+            <p><em>Опис предметної галузі та бізнес-логіки</em></p>
+        </header>
+
+        <a href="index.html" class="back-link">Повернутися на головну</a>
+
+        <section>
+            <h2>1. ОПИС ПРЕДМЕТНОГО СЕРЕДОВИЩА</h2>
+
+            <h3>Загальний опис</h3>
+            <p>
+                <strong>Трекер звичок (Habit Tracker)</strong> - це веб-застосунок для формування та відстеження корисних звичок користувачів. 
+                Застосунок допомагає людям систематично виконувати необхідні дії, відстежувати прогрес і підтримувати мотивацію 
+                через візуалізацію досягнень.
+            </p>
+
+            <div class="info-box">
+                <h4>Чому це важливо?</h4>
+                <p>
+                    Дослідження показують, що для формування нової звички потрібно в середньому 21-66 днів регулярного виконання. 
+                    Наш застосунок допомагає пройти цей шлях, надаючи інструменти для відстеження, мотивації та аналізу прогресу.
+                </p>
+            </div>
+
+            <h3>Основні сутності системи</h3>
+            <ul>
+                <li><strong>Користувач</strong> - особа, яка використовує систему для відстеження звичок</li>
+                <li><strong>Звичка</strong> - регулярна дія, яку користувач хоче виробити</li>
+                <li><strong>Запис виконання</strong> - фіксація факту виконання звички в конкретний день</li>
+                <li><strong>Статистика</strong> - узагальнені дані про виконання звичок за період</li>
+                <li><strong>Категорії</strong> - групування звичок</li>
+            </ul>
+
+            <h3>Функціонал системи</h3>
+
+            <h4>Управління звичками:</h4>
+            <ul>
+                <li>Створення нової звички з параметрами</li>
+                <li>Редагування існуючих звичок</li>
+                <li>Видалення звичок</li>
+                <li>Архівування завершених звичок</li>
+            </ul>
+
+            <h4>Відстеження виконання:</h4>
+            <ul>
+                <li>Позначення звички як виконаної за день</li>
+                <li>Скасування позначки виконання</li>
+                <li>Додавання нотаток до виконання</li>
+                <li>Перегляд історії виконання</li>
+            </ul>
+
+            <h4>Візуалізація та аналітика:</h4>
+            <ul>
+                <li>Календар виконання - кольорова карта активності</li>
+                <li>Статистика серій - кількість днів поспіль</li>
+                <li>Загальний прогрес у відсотках</li>
+                <li>Графіки та діаграми досягнень</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>2. ОПИС БІЗНЕС-ЛОГІКИ</h2>
+
+            <h3>Основні сценарії роботи користувача:</h3>
+
+            <h4>Сценарій 1: Реєстрація та налаштування профілю</h4>
+            <ol>
+                <li>Користувач заходить на сайт</li>
+                <li>Проходить реєстрацію</li>
+                <li>Налаштовує профіль</li>
+                <li>Вибирає час нагадувань</li>
+            </ol>
+
+            <h4>Сценарій 2: Створення першої звички</h4>
+            <ol>
+                <li>Натискає кнопку "Додати звичку"</li>
+                <li>Заповнює форму</li>
+                <li>Встановлює параметри</li>
+                <li>Зберігає звичку</li>
+            </ol>
+
+            <h4>Сценарій 3: Щоденне відмічання виконання</h4>
+            <ol>
+                <li>Користувач заходить у додаток</li>
+                <li>Бачить список активних звичок</li>
+                <li>Натискає галочку біля виконаної звички</li>
+                <li>Система оновлює статистику</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>3. ФУНКЦІОНАЛЬНІ ВИМОГИ</h2>
+
+            <h3>FR-1: Управління звичками</h3>
+            <ul>
+                <li><strong>FR-1.1:</strong> Система повинна дозволяти створювати нову звичку</li>
+                <li><strong>FR-1.2:</strong> Система повинна дозволяти редагувати звичку</li>
+                <li><strong>FR-1.3:</strong> Система повинна дозволяти видаляти звичку</li>
+            </ul>
+
+            <h3>FR-2: Відстеження виконання</h3>
+            <ul>
+                <li><strong>FR-2.1:</strong> Система повинна дозволяти відмічати виконання звички</li>
+                <li><strong>FR-2.2:</strong> Система повинна зберігати історію виконання</li>
+                <li><strong>FR-2.3:</strong> Система повинна розраховувати серії виконання</li>
+            </ul>
+
+            <h3>FR-3: Візуалізація даних</h3>
+            <ul>
+                <li><strong>FR-3.1:</strong> Система повинна відображати календар виконання</li>
+                <li><strong>FR-3.2:</strong> Система повинна показувати графіки прогресу</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>4. НЕФУНКЦІОНАЛЬНІ ВИМОГИ</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Категорія</th>
+                        <th>Вимога</th>
+                        <th>Опис</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Продуктивність</strong></td>
+                        <td>NFR-1.1</td>
+                        <td>Час завантаження не більше 2 секунд</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Безпека</strong></td>
+                        <td>NFR-2.1</td>
+                        <td>Дані користувача повинні зберігатися безпечно</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Сумісність</strong></td>
+                        <td>NFR-4.1</td>
+                        <td>Підтримка браузерів Chrome, Firefox, Safari, Edge</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>5. ТЕХНІЧНИЙ СТЕК</h2>
+
+            <h3>Frontend:</h3>
+            <ul>
+                <li><strong>HTML5</strong> - структура сторінок</li>
+                <li><strong>CSS3</strong> - стилізація та анімації</li>
+                <li><strong>JavaScript</strong> - інтерактивність</li>
+            </ul>
+
+            <h3>Інструменти розробки:</h3>
+            <ul>
+                <li><strong>Git/GitHub</strong> - версіонування коду</li>
+                <li><strong>GitHub Pages</strong> - хостинг</li>
+            </ul>
+        </section>
+
+        <a href="index.html" class="back-link">Повернутися на головну</a>
+
+        <div class="author-info">
+            <h3>Про автора</h3>
+            <p><strong>Виконавець:</strong> Сас Євгеній</p>
+            <p><strong>Група:</strong> ІО-31</p>
+            <p><strong>Email:</strong> qwerty2015f5@gmail.com</p>
+            <p><strong>GitHub:</strong> https://github.com/Freazg</p>
+        </div>
+    </div>
+</body>
+</html>
