@@ -83,13 +83,18 @@
         .contact-item {
             margin-bottom: 15px;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
+            word-break: break-word;
         }
 
         .icon {
-            width: 20px;
+            min-width: 60px;
             margin-right: 10px;
             font-weight: bold;
+        }
+
+        .contact-text {
+            flex: 1;
         }
 
         .skill-item {
@@ -208,7 +213,7 @@
 <body>
     <div class="container">
         <aside class="sidebar">
-            <img id="profile-photo" src="https://via.placeholder.com/150" alt="Фото профілю">
+            <img id="profile-photo" src="https://i.postimg.cc/90skCXJC/photo-2025-12-03-23-06-27.jpg" alt="Фото профілю">
             
             <div class="name">Сас Євгеній</div>
             <div class="title">Frontend Developer</div>
@@ -217,15 +222,19 @@
                 <div class="section-title">Контакти</div>
                 <div class="contact-item">
                     <span class="icon">Email:</span>
-                    <a href="mailto:qwerty2015f5@gmail.com">qwerty2015f5@gmail.com</a>
+                    <div class="contact-text">
+                        <a href="mailto:qwerty2015f5@gmail.com">qwerty2015f5@gmail.com</a>
+                    </div>
                 </div>
                 <div class="contact-item">
                     <span class="icon">GitHub:</span>
-                    <a href="https://github.com/Freazg" target="_blank">github.com/Freazg</a>
+                    <div class="contact-text">
+                        <a href="https://github.com/Freazg" target="_blank">github.com/Freazg</a>
+                    </div>
                 </div>
                 <div class="contact-item">
                     <span class="icon">Локація:</span>
-                    Київ, Україна
+                    <div class="contact-text">Київ, Україна</div>
                 </div>
             </div>
 
@@ -280,7 +289,6 @@
                 <ul class="languages">
                     <li><strong>Українська</strong> - рідна</li>
                     <li><strong>Англійська</strong> - B2</li>
-                    <li><strong>Російська</strong> - вільно</li>
                 </ul>
             </div>
         </aside>
