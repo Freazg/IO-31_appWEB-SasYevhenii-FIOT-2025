@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 9 - Спливаюча підказка</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+            line-height: 1.6;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #764ba2;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        /* Стилі для елементів з підказкою */
+        .tooltip-trigger {
+            color: #667eea;
+            font-weight: bold;
+            cursor: help;
+            border-bottom: 2px dotted #667eea;
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Стилі для спливаючої підказки */
+        .tooltip {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 10px;
+            padding: 10px 15px;
+            background: #333;
+            color: white;
+            border-radius: 6px;
+            font-size: 14px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        /* Стрілка підказки */
+        .tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 6px solid transparent;
+            border-top-color: #333;
+        }
+
+        /* Показати підказку при наведенні */
+        .tooltip-trigger:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .instruction {
+            background: #e8eaf6;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+        }
+
+        .code-section {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            font-size: 13px;
+            overflow-x: auto;
+        }
+
+        .demo-section {
+            background: #fff9c4;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 2px solid #ffd54f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Завдання 9 - Візуальний елемент «Спливаюча підказка»</h1>
+        
+        <div class="instruction">
+            <h2>Умова завдання:</h2>
+            <p>Надати можливість виведення спливаючої підказки при наведенні миші над текстом Web-сторінки. 
+            Передбачити можливість створення нових підказок та їх підключення до обраного фрагменту тексту.</p>
+        </div>
+
+        <h2>Демонстрація роботи:</h2>
+        <div class="demo-section">
+            <p>
+                <span class="tooltip-trigger">JavaScript
+                    <span class="tooltip">Мова програмування для веб-розробки</span>
+                </span> 
+                - це потужна мова програмування, яка використовується для створення інтерактивних веб-сторінок.
+            </p>
+            
+            <p>
+                Вона підтримує 
+                <span class="tooltip-trigger">масиви
+                    <span class="tooltip">Структура даних для зберігання елементів</span>
+                </span>, 
+                <span class="tooltip-trigger">функції
+                    <span class="tooltip">Блок коду, який можна викликати багато разів</span>
+                </span>, 
+                та 
+                <span class="tooltip-trigger">об'єкти
+                    <span class="tooltip">Колекція властивостей та методів</span>
+                </span>.
+            </p>
+
+            <p>
+                За допомогою 
+                <span class="tooltip-trigger">DOM
+                    <span class="tooltip">Document Object Model - API для роботи з HTML</span>
+                </span> 
+                можна динамічно змінювати вміст сторінки.
+            </p>
+
+            <p>
+                <span class="tooltip-trigger">HTML5
+                    <span class="tooltip">П'ята версія мови розмітки HTML</span>
+                </span> 
+                та 
+                <span class="tooltip-trigger">CSS3
+                    <span class="tooltip">Каскадні таблиці стилів версії 3</span>
+                </span> 
+                разом створюють сучасні веб-додатки.
+            </p>
+        </div>
+
+        <h2>HTML код:</h2>
+        <div class="code-section">&lt;span class="tooltip-trigger"&gt;JavaScript
+    &lt;span class="tooltip"&gt;Мова програмування для веб-розробки&lt;/span&gt;
+&lt;/span&gt;</div>
+
+        <h2>CSS код:</h2>
+        <div class="code-section">/* Стилі для елементів з підказкою */
+.tooltip-trigger {
+    color: #667eea;
+    font-weight: bold;
+    cursor: help;
+    border-bottom: 2px dotted #667eea;
+    position: relative;
+    display: inline-block;
+}
+
+/* Стилі для спливаючої підказки */
+.tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    background: #333;
+    color: white;
+    border-radius: 6px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 1000;
+}
+
+/* Стрілка підказки */
+.tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: #333;
+}
+
+/* Показати підказку при наведенні */
+.tooltip-trigger:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+}</div>
+
+        <h2>JavaScript функції для динамічного створення підказок:</h2>
+        <div class="code-section">// Функція для додавання підказки до елемента
+function addTooltip(elementId, tooltipText) {
+    let element = document.getElementById(elementId);
+    
+    if (!element) {
+        console.error(`Елемент з ID "${elementId}" не знайдено`);
+        return;
+    }
+    
+    // Додати клас для стилізації
+    element.classList.add('tooltip-trigger');
+    
+    // Створити елемент підказки
+    let tooltip = document.createElement('span');
+    tooltip.className = 'tooltip';
+    tooltip.textContent = tooltipText;
+    
+    // Додати підказку до елемента
+    element.appendChild(tooltip);
+    
+    console.log(`Підказку "${tooltipText}" додано до елемента "${elementId}"`);
+}
+
+// Функція для додавання підказки до тексту за селектором
+function addTooltipToSelector(selector, tooltipText) {
+    let elements = document.querySelectorAll(selector);
+    
+    elements.forEach(function(element) {
+        element.classList.add('tooltip-trigger');
+        
+        let tooltip = document.createElement('span');
+        tooltip.className = 'tooltip';
+        tooltip.textContent = tooltipText;
+        
+        element.appendChild(tooltip);
+    });
+    
+    console.log(`Підказки додано до ${elements.length} елементів`);
+}
+
+// Приклади використання:
+// addTooltip('myElement', 'Це моя підказка');
+// addTooltipToSelector('.term', 'Технічний термін');</div>
+
+        <h2>Переваги реалізації:</h2>
+        <ul style="margin-left: 30px; margin-top: 15px;">
+            <li>Чистий CSS без JavaScript для базової функціональності</li>
+            <li>Плавна анімація появи/зникнення</li>
+            <li>Адаптивне позиціонування</li>
+            <li>Стрілка вказує на елемент</li>
+            <li>Можливість динамічного додавання підказок через JavaScript</li>
+            <li>Легко налаштовувані стилі</li>
+        </ul>
+
+        <div class="instruction" style="margin-top: 30px;">
+            <p><strong>Інструкція:</strong> Наведіть курсор миші на виділені слова у жовтому блоці "Демонстрація роботи", 
+            щоб побачити спливаючі підказки.</p>
+        </div>
+    </div>
+
+    <script>
+        // Функція для додавання підказки до елемента за ID
+        function addTooltip(elementId, tooltipText) {
+            let element = document.getElementById(elementId);
+            
+            if (!element) {
+                console.error(`Елемент з ID "${elementId}" не знайдено`);
+                return;
+            }
+            
+            // Додати клас для стилізації
+            element.classList.add('tooltip-trigger');
+            
+            // Створити елемент підказки
+            let tooltip = document.createElement('span');
+            tooltip.className = 'tooltip';
+            tooltip.textContent = tooltipText;
+            
+            // Додати підказку до елемента
+            element.appendChild(tooltip);
+            
+            console.log(`Підказку "${tooltipText}" додано до елемента "${elementId}"`);
+        }
+
+        // Функція для додавання підказки до елементів за селектором
+        function addTooltipToSelector(selector, tooltipText) {
+            let elements = document.querySelectorAll(selector);
+            
+            elements.forEach(function(element) {
+                element.classList.add('tooltip-trigger');
+                
+                let tooltip = document.createElement('span');
+                tooltip.className = 'tooltip';
+                tooltip.textContent = tooltipText;
+                
+                element.appendChild(tooltip);
+            });
+            
+            console.log(`Підказки додано до ${elements.length} елементів`);
+        }
+
+        // Виведення інформації в консоль
+        console.log("=== ЗАВДАННЯ 9 - СПЛИВАЮЧА ПІДКАЗКА ===");
+        console.log("");
+        console.log("Спливаючі підказки успішно реалізовані!");
+        console.log("Наведіть курсор на виділені слова, щоб побачити підказки.");
+        console.log("");
+        console.log("Доступні функції:");
+        console.log("1. addTooltip(elementId, tooltipText) - додати підказку до елемента за ID");
+        console.log("2. addTooltipToSelector(selector, tooltipText) - додати підказки до всіх елементів за селектором");
+    </script>
+</body>
+</html>

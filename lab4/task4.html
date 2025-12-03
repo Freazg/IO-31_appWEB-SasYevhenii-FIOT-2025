@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 4 - Доставка товару</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #667eea;
+        }
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #764ba2;
+        }
+        .code {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Завдання 4 - Функція доставки товару</h1>
+        <p><strong>Умова:</strong> Оголосити функцію getShippingMessage, яка очікує три параметри: 
+        country (країна доставки), price (вартість товару), deliveryFee (вартість доставки). 
+        Функція повертає рядок з повідомленням про доставку.</p>
+        
+        <button onclick="testShipping()">Тестувати доставку</button>
+
+        <h3>Код програми:</h3>
+        <div class="code">// Оголосити функцію getShippingMessage
+function getShippingMessage(country, price, deliveryFee) {
+    // Обчислити загальну вартість (товар + доставка)
+    let totalPrice = price + deliveryFee;
+    
+    // Повернути рядок з повідомленням
+    return `Shipping to ${country} will cost ${totalPrice} credits`;
+}
+
+// Тестова функція
+function testShipping() {
+    console.log("=== Тестування функції getShippingMessage ===");
+    
+    // Тест 1
+    let result1 = getShippingMessage("Australia", 120, 50);
+    console.log(result1);
+    alert(result1);
+    
+    // Тест 2
+    let result2 = getShippingMessage("Germany", 80, 20);
+    console.log(result2);
+    
+    // Тест 3
+    let result3 = getShippingMessage("Sweden", 100, 20);
+    console.log(result3);
+    
+    console.log("=== Тестування завершено ===");
+}</div>
+
+        <h3>Приклади виклику:</h3>
+        <div class="code">getShippingMessage("Australia", 120, 50)
+// Результат: "Shipping to Australia will cost 170 credits"
+
+getShippingMessage("Germany", 80, 20)
+// Результат: "Shipping to Germany will cost 100 credits"
+
+getShippingMessage("Sweden", 100, 20)
+// Результат: "Shipping to Sweden will cost 120 credits"</div>
+    </div>
+
+    <script>
+        // Оголосити функцію getShippingMessage
+        function getShippingMessage(country, price, deliveryFee) {
+            // Обчислити загальну вартість (товар + доставка)
+            let totalPrice = price + deliveryFee;
+            
+            // Повернути рядок з повідомленням
+            return `Shipping to ${country} will cost ${totalPrice} credits`;
+        }
+
+        // Тестова функція
+        function testShipping() {
+            console.log("=== Тестування функції getShippingMessage ===");
+            
+            // Тест 1
+            let result1 = getShippingMessage("Australia", 120, 50);
+            console.log(result1);
+            alert(result1);
+            
+            // Тест 2
+            let result2 = getShippingMessage("Germany", 80, 20);
+            console.log(result2);
+            
+            // Тест 3
+            let result3 = getShippingMessage("Sweden", 100, 20);
+            console.log(result3);
+            
+            console.log("=== Тестування завершено ===");
+        }
+    </script>
+</body>
+</html>

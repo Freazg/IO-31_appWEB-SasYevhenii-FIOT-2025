@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 5 - Станція з продажу дроїдів</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #667eea;
+        }
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #764ba2;
+        }
+        .code {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Завдання 5 - Станція з продажу ремонтних дроїдів</h1>
+        <p><strong>Умова:</strong> Оголосити функцію makeTransaction(quantity, pricePerDroid, customerCredits), 
+        яка складає та повертає повідомлення про купівлю ремонтних дроїдів. 
+        Перевірити чи достатньо коштів у клієнта.</p>
+        
+        <button onclick="testTransaction()">Тестувати транзакції</button>
+
+        <h3>Код програми:</h3>
+        <div class="code">function makeTransaction(quantity, pricePerDroid, customerCredits) {
+    // Оголосити змінну для зберігання загальної суми замовлення
+    let totalPrice = quantity * pricePerDroid;
+    
+    console.log(`Кількість дроїдів: ${quantity}`);
+    console.log(`Ціна за дроїда: ${pricePerDroid} credits`);
+    console.log(`Загальна вартість: ${totalPrice} credits`);
+    console.log(`Кредити клієнта: ${customerCredits} credits`);
+    
+    // Додати перевірку, чи зможе клієнт оплатити замовлення
+    if (totalPrice > customerCredits) {
+        // Якщо сума до сплати перевищує кількість кредитів
+        console.log("Результат: Insufficient funds!");
+        return "Insufficient funds!";
+    } else {
+        // В іншому випадку повернути повідомлення про успішну покупку
+        let message = `You ordered ${quantity} droids worth ${totalPrice} credits!`;
+        console.log(`Результат: ${message}`);
+        return message;
+    }
+}
+
+// Тестова функція
+function testTransaction() {
+    console.log("=== Тестування функції makeTransaction ===");
+    console.log("");
+    
+    // Тест 1 - Достатньо коштів
+    console.log("--- Тест 1 ---");
+    let result1 = makeTransaction(5, 3000, 23000);
+    alert(result1);
+    console.log("");
+    
+    // Тест 2 - Недостатньо коштів
+    console.log("--- Тест 2 ---");
+    let result2 = makeTransaction(3, 1000, 15000);
+    console.log(result2);
+    console.log("");
+    
+    // Тест 3 - Недостатньо коштів
+    console.log("--- Тест 3 ---");
+    let result3 = makeTransaction(10, 5000, 8000);
+    console.log(result3);
+    console.log("");
+    
+    // Тест 4 - Достатньо коштів
+    console.log("--- Тест 4 ---");
+    let result4 = makeTransaction(8, 2000, 10000);
+    console.log(result4);
+    console.log("");
+    
+    // Тест 5 - Рівно достатньо
+    console.log("--- Тест 5 ---");
+    let result5 = makeTransaction(10, 500, 5000);
+    console.log(result5);
+    
+    console.log("");
+    console.log("=== Тестування завершено ===");
+}</div>
+
+        <h3>Приклади виклику:</h3>
+        <div class="code">makeTransaction(5, 3000, 23000)
+// Результат: "You ordered 5 droids worth 15000 credits!"
+
+makeTransaction(3, 1000, 15000)
+// Результат: "You ordered 3 droids worth 3000 credits!"
+
+makeTransaction(10, 5000, 8000)
+// Результат: "Insufficient funds!"
+
+makeTransaction(8, 2000, 10000)
+// Результат: "Insufficient funds!"
+
+makeTransaction(10, 500, 5000)
+// Результат: "You ordered 10 droids worth 5000 credits!"</div>
+    </div>
+
+    <script>
+        function makeTransaction(quantity, pricePerDroid, customerCredits) {
+            // Оголосити змінну для зберігання загальної суми замовлення
+            let totalPrice = quantity * pricePerDroid;
+            
+            console.log(`Кількість дроїдів: ${quantity}`);
+            console.log(`Ціна за дроїда: ${pricePerDroid} credits`);
+            console.log(`Загальна вартість: ${totalPrice} credits`);
+            console.log(`Кредити клієнта: ${customerCredits} credits`);
+            
+            // Додати перевірку, чи зможе клієнт оплатити замовлення
+            if (totalPrice > customerCredits) {
+                // Якщо сума до сплати перевищує кількість кредитів
+                console.log("Результат: Insufficient funds!");
+                return "Insufficient funds!";
+            } else {
+                // В іншому випадку повернути повідомлення про успішну покупку
+                let message = `You ordered ${quantity} droids worth ${totalPrice} credits!`;
+                console.log(`Результат: ${message}`);
+                return message;
+            }
+        }
+
+        // Тестова функція
+        function testTransaction() {
+            console.log("=== Тестування функції makeTransaction ===");
+            console.log("");
+            
+            // Тест 1 - Достатньо коштів
+            console.log("--- Тест 1 ---");
+            let result1 = makeTransaction(5, 3000, 23000);
+            alert(result1);
+            console.log("");
+            
+            // Тест 2 - Недостатньо коштів
+            console.log("--- Тест 2 ---");
+            let result2 = makeTransaction(3, 1000, 15000);
+            console.log(result2);
+            console.log("");
+            
+            // Тест 3 - Недостатньо коштів
+            console.log("--- Тест 3 ---");
+            let result3 = makeTransaction(10, 5000, 8000);
+            console.log(result3);
+            console.log("");
+            
+            // Тест 4 - Достатньо коштів
+            console.log("--- Тест 4 ---");
+            let result4 = makeTransaction(8, 2000, 10000);
+            console.log(result4);
+            console.log("");
+            
+            // Тест 5 - Рівно достатньо
+            console.log("--- Тест 5 ---");
+            let result5 = makeTransaction(10, 500, 5000);
+            console.log(result5);
+            
+            console.log("");
+            console.log("=== Тестування завершено ===");
+        }
+    </script>
+</body>
+</html>

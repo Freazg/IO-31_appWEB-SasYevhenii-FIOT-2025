@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 8 - Двовимірний масив</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #667eea;
+        }
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #764ba2;
+        }
+        .code {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Завдання 8 - Робота з двовимірним масивом</h1>
+        <p><strong>Умова:</strong> Є двовимірний масив додатніх і від'ємних чисел. 
+        Вивести у Console браузера. Зберегти перший і останній елементи масиву в окремі змінні. 
+        Вставити 25 після другого елемента масиву. Вивести у Console браузера.</p>
+        
+        <button onclick="executeTask()">Виконати завдання</button>
+
+        <h3>Код програми:</h3>
+        <div class="code">// Функція для генерації випадкового числа
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// Функція для генерації двовимірного масиву
+function generate2DArray(rows, cols) {
+    let array = [];
+    for (let i = 0; i < rows; i++) {
+        let row = [];
+        for (let j = 0; j < cols; j++) {
+            row.push(getRandomInt(-30, 30));
+        }
+        array.push(row);
+    }
+    return array;
+}
+
+// Функція для виведення двовимірного масиву в консоль
+function print2DArray(array, title) {
+    console.log(title);
+    console.log("--------------------");
+    for (let i = 0; i < array.length; i++) {
+        console.log(`Рядок ${i}: [${array[i]}]`);
+    }
+    console.log("");
+}
+
+// Функція для перетворення двовимірного масиву в одновимірний
+function flattenArray(array) {
+    let flat = [];
+    for (let i = 0; i < array.length; i++) {
+        for (let j = 0; j < array[i].length; j++) {
+            flat.push(array[i][j]);
+        }
+    }
+    return flat;
+}
+
+// Основна функція виконання завдання
+function executeTask() {
+    console.clear();
+    console.log("=== ЗАВДАННЯ 8 - ДВОВИМІРНИЙ МАСИВ ===");
+    console.log("");
+    
+    // Об'явити і проініціалізувати двовимірний масив
+    let array2D = generate2DArray(3, 4);
+    
+    // Вивести двовимірний масив у Console
+    print2DArray(array2D, "Двовимірний масив (початковий):");
+    
+    // Перетворити в одновимірний для зручності роботи
+    let array = flattenArray(array2D);
+    console.log("Одновимірне представлення:");
+    console.log(`[${array}]`);
+    console.log("");
+    
+    // Зберегти перший і останній елементи масиву в окремі змінні
+    let firstElement = array[0];
+    let lastElement = array[array.length - 1];
+    
+    console.log("Збережені елементи:");
+    console.log(`Перший елемент: ${firstElement}`);
+    console.log(`Останній елемент: ${lastElement}`);
+    console.log("");
+    
+    // Вставити 25 після другого елемента масиву
+    // Це означає вставити на позицію з індексом 2
+    array.splice(2, 0, 25);
+    
+    console.log("Після вставки 25 після другого елемента:");
+    console.log(`[${array}]`);
+    console.log("");
+    
+    // Перетворити назад в двовимірний масив для виведення
+    let newArray2D = [];
+    let cols = array2D[0].length;
+    for (let i = 0; i < array.length; i += cols) {
+        newArray2D.push(array.slice(i, i + cols));
+    }
+    
+    print2DArray(newArray2D, "Двовимірний масив (оновлений):");
+    
+    console.log("=== ЗАВДАННЯ ВИКОНАНО ===");
+    
+    alert("Завдання виконано! Перегляньте результати в консолі.");
+}</div>
+    </div>
+
+    <script>
+        // Функція для генерації випадкового числа
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        // Функція для генерації двовимірного масиву
+        function generate2DArray(rows, cols) {
+            let array = [];
+            for (let i = 0; i < rows; i++) {
+                let row = [];
+                for (let j = 0; j < cols; j++) {
+                    row.push(getRandomInt(-30, 30));
+                }
+                array.push(row);
+            }
+            return array;
+        }
+
+        // Функція для виведення двовимірного масиву в консоль
+        function print2DArray(array, title) {
+            console.log(title);
+            console.log("--------------------");
+            for (let i = 0; i < array.length; i++) {
+                console.log(`Рядок ${i}: [${array[i]}]`);
+            }
+            console.log("");
+        }
+
+        // Функція для перетворення двовимірного масиву в одновимірний
+        function flattenArray(array) {
+            let flat = [];
+            for (let i = 0; i < array.length; i++) {
+                for (let j = 0; j < array[i].length; j++) {
+                    flat.push(array[i][j]);
+                }
+            }
+            return flat;
+        }
+
+        // Основна функція виконання завдання
+        function executeTask() {
+            console.clear();
+            console.log("=== ЗАВДАННЯ 8 - ДВОВИМІРНИЙ МАСИВ ===");
+            console.log("");
+            
+            // Об'явити і проініціалізувати двовимірний масив
+            let array2D = generate2DArray(3, 4);
+            
+            // Вивести двовимірний масив у Console
+            print2DArray(array2D, "Двовимірний масив (початковий):");
+            
+            // Перетворити в одновимірний для зручності роботи
+            let array = flattenArray(array2D);
+            console.log("Одновимірне представлення:");
+            console.log(`[${array}]`);
+            console.log("");
+            
+            // Зберегти перший і останній елементи масиву в окремі змінні
+            let firstElement = array[0];
+            let lastElement = array[array.length - 1];
+            
+            console.log("Збережені елементи:");
+            console.log(`Перший елемент: ${firstElement}`);
+            console.log(`Останній елемент: ${lastElement}`);
+            console.log("");
+            
+            // Вставити 25 після другого елемента масиву
+            // Це означає вставити на позицію з індексом 2
+            array.splice(2, 0, 25);
+            
+            console.log("Після вставки 25 після другого елемента:");
+            console.log(`[${array}]`);
+            console.log("");
+            
+            // Перетворити назад в двовимірний масив для виведення
+            let newArray2D = [];
+            let cols = array2D[0].length;
+            for (let i = 0; i < array.length; i += cols) {
+                newArray2D.push(array.slice(i, i + cols));
+            }
+            
+            print2DArray(newArray2D, "Двовимірний масив (оновлений):");
+            
+            console.log("=== ЗАВДАННЯ ВИКОНАНО ===");
+            
+            alert("Завдання виконано! Перегляньте результати в консолі.");
+        }
+    </script>
+</body>
+</html>

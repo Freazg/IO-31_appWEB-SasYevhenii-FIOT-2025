@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 1 - Перевірка часу</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #667eea;
+        }
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        button:hover {
+            background: #764ba2;
+        }
+        .code {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Завдання 1 - Перевірка чверті години</h1>
+        <p><strong>Умова:</strong> Збережіть введене значення часу (год:хвил) у змінну hour. 
+        Вивести це значення у Console, використовуючи шаблонний рядок. 
+        Перевірити до якої чверті години відноситься введене значення.</p>
+        
+        <button onclick="checkTime()">Перевірити час</button>
+
+        <h3>Код програми:</h3>
+        <div class="code">function checkTime() {
+    // Умова: Збережіть введене значення часу (год:хвил)
+    let hour = prompt("Введіть час у форматі год:хвил (наприклад, 10:30):");
+    
+    // Перевірка на null або порожній рядок
+    if (hour === null || hour === "") {
+        alert("Ви не ввели час!");
+        console.log("Користувач скасував введення або не ввів час");
+        return;
+    }
+    
+    // Вивести це значення у Console, використовуючи шаблонний рядок
+    console.log(`Введений час: ${hour}`);
+    
+    // Розділити час на години та хвилини
+    let parts = hour.split(":");
+    
+    // Перевірка правильності формату
+    if (parts.length !== 2) {
+        alert("Невірний формат часу! Використовуйте формат год:хвил");
+        console.log("Помилка формату");
+        return;
+    }
+    
+    let hours = parseInt(parts[0]);
+    let minutes = parseInt(parts[1]);
+    
+    // Перевірка коректності значень
+    if (isNaN(hours) || isNaN(minutes) || hours < 0 || hours > 23 || minutes < 0 || minutes > 59) {
+        alert("Невірні значення часу!");
+        console.log("Невірні значення годин або хвилин");
+        return;
+    }
+    
+    // Перевірити до якої чверті години відноситься введене значення
+    let quarter;
+    
+    if (minutes >= 0 && minutes < 15) {
+        quarter = "Перша чверть години";
+    } else if (minutes >= 15 && minutes < 30) {
+        quarter = "Друга чверть години";
+    } else if (minutes >= 30 && minutes < 45) {
+        quarter = "Третя чверть години";
+    } else {
+        quarter = "Четверта чверть години";
+    }
+    
+    // Відповідь вивести за допомогою alert()
+    alert(quarter);
+    console.log(`Результат: ${quarter}`);
+}</div>
+    </div>
+
+    <script>
+        function checkTime() {
+            // Умова: Збережіть введене значення часу (год:хвил)
+            let hour = prompt("Введіть час у форматі год:хвил (наприклад, 10:30):");
+            
+            // Перевірка на null або порожній рядок
+            if (hour === null || hour === "") {
+                alert("Ви не ввели час!");
+                console.log("Користувач скасував введення або не ввів час");
+                return;
+            }
+            
+            // Вивести це значення у Console, використовуючи шаблонний рядок
+            console.log(`Введений час: ${hour}`);
+            
+            // Розділити час на години та хвилини
+            let parts = hour.split(":");
+            
+            // Перевірка правильності формату
+            if (parts.length !== 2) {
+                alert("Невірний формат часу! Використовуйте формат год:хвил");
+                console.log("Помилка формату");
+                return;
+            }
+            
+            let hours = parseInt(parts[0]);
+            let minutes = parseInt(parts[1]);
+            
+            // Перевірка коректності значень
+            if (isNaN(hours) || isNaN(minutes) || hours < 0 || hours > 23 || minutes < 0 || minutes > 59) {
+                alert("Невірні значення часу!");
+                console.log("Невірні значення годин або хвилин");
+                return;
+            }
+            
+            // Перевірити до якої чверті години відноситься введене значення
+            let quarter;
+            
+            if (minutes >= 0 && minutes < 15) {
+                quarter = "Перша чверть години";
+            } else if (minutes >= 15 && minutes < 30) {
+                quarter = "Друга чверть години";
+            } else if (minutes >= 30 && minutes < 45) {
+                quarter = "Третя чверть години";
+            } else {
+                quarter = "Четверта чверть години";
+            }
+            
+            // Відповідь вивести за допомогою alert()
+            alert(quarter);
+            console.log(`Результат: ${quarter}`);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 7 - Варіант 10</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #667eea;
+        }
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #764ba2;
+        }
+        .code {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Завдання 7 - Варіант 10</h1>
+        <p><strong>Умова частина 1:</strong> Згенерувати значення елементів одновимірного масиву 
+        за допомогою генератора псевдовипадкових чисел, задавши кількість елементів масиву з клавіатури. 
+        Знайти мінімальний за значенням елемент і записати його на початок масиву, 
+        звільнивши для нього місце шляхом зсуву елементів масиву вправо. Застосувати функції.</p>
+        
+        <p><strong>Умова частина 2:</strong> Упорядкувати масив у порядку зменшення методом вибору. 
+        Надрукувати вхідний та вихідний масив. Застосувати функції.</p>
+        
+        <button onclick="executeTask()">Виконати завдання</button>
+
+        <h3>Код програми:</h3>
+        <div class="code">// Функція для генерації випадкового числа
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// Функція для генерації масиву
+function generateArray(size) {
+    let array = [];
+    for (let i = 0; i < size; i++) {
+        array.push(getRandomInt(-50, 50));
+    }
+    return array;
+}
+
+// Функція для знаходження індексу мінімального елемента
+function findMinIndex(array) {
+    let minIndex = 0;
+    for (let i = 1; i < array.length; i++) {
+        if (array[i] < array[minIndex]) {
+            minIndex = i;
+        }
+    }
+    return minIndex;
+}
+
+// Функція для переміщення мінімального елемента на початок
+function moveMinToStart(array) {
+    let minIndex = findMinIndex(array);
+    let minValue = array[minIndex];
+    
+    console.log(`Мінімальний елемент: ${minValue} (індекс ${minIndex})`);
+    
+    // Зсув елементів вправо від початку до позиції мінімального
+    for (let i = minIndex; i > 0; i--) {
+        array[i] = array[i - 1];
+    }
+    
+    // Записати мінімальний елемент на початок
+    array[0] = minValue;
+    
+    return array;
+}
+
+// Функція сортування методом вибору (за зменшенням)
+function selectionSortDesc(array) {
+    let n = array.length;
+    
+    for (let i = 0; i < n - 1; i++) {
+        // Знайти максимальний елемент в невідсортованій частині
+        let maxIndex = i;
+        for (let j = i + 1; j < n; j++) {
+            if (array[j] > array[maxIndex]) {
+                maxIndex = j;
+            }
+        }
+        
+        // Поміняти місцями поточний і максимальний елемент
+        if (maxIndex !== i) {
+            let temp = array[i];
+            array[i] = array[maxIndex];
+            array[maxIndex] = temp;
+        }
+    }
+    
+    return array;
+}
+
+// Основна функція виконання завдання
+function executeTask() {
+    console.clear();
+    console.log("=== ЗАВДАННЯ 7 - ВАРІАНТ 10 ===");
+    console.log("");
+    
+    // Запитати кількість елементів
+    let size = prompt("Введіть кількість елементів масиву:");
+    
+    if (size === null || size === "") {
+        alert("Операцію скасовано");
+        return;
+    }
+    
+    size = parseInt(size);
+    
+    if (isNaN(size) || size <= 0) {
+        alert("Невірне значення! Введіть додатне число.");
+        return;
+    }
+    
+    console.log("ЧАСТИНА 1: Переміщення мінімального елемента на початок");
+    console.log("========================================================");
+    
+    // Генерувати масив
+    let array = generateArray(size);
+    console.log(`Згенерований масив: [${array}]`);
+    
+    // Створити копію для відображення вхідного масиву
+    let originalArray = [...array];
+    
+    // Перемістити мінімальний елемент на початок
+    array = moveMinToStart(array);
+    console.log(`Масив після переміщення: [${array}]`);
+    console.log("");
+    
+    console.log("ЧАСТИНА 2: Сортування методом вибору (за зменшенням)");
+    console.log("=====================================================");
+    console.log(`Вхідний масив: [${array}]`);
+    
+    // Сортування
+    array = selectionSortDesc(array);
+    console.log(`Вихідний масив (відсортований): [${array}]`);
+    
+    console.log("");
+    console.log("=== ЗАВДАННЯ ВИКОНАНО ===");
+    
+    alert("Завдання виконано! Перегляньте результати в консолі.");
+}</div>
+    </div>
+
+    <script>
+        // Функція для генерації випадкового числа
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        // Функція для генерації масиву
+        function generateArray(size) {
+            let array = [];
+            for (let i = 0; i < size; i++) {
+                array.push(getRandomInt(-50, 50));
+            }
+            return array;
+        }
+
+        // Функція для знаходження індексу мінімального елемента
+        function findMinIndex(array) {
+            let minIndex = 0;
+            for (let i = 1; i < array.length; i++) {
+                if (array[i] < array[minIndex]) {
+                    minIndex = i;
+                }
+            }
+            return minIndex;
+        }
+
+        // Функція для переміщення мінімального елемента на початок
+        function moveMinToStart(array) {
+            let minIndex = findMinIndex(array);
+            let minValue = array[minIndex];
+            
+            console.log(`Мінімальний елемент: ${minValue} (індекс ${minIndex})`);
+            
+            // Зсув елементів вправо від початку до позиції мінімального
+            for (let i = minIndex; i > 0; i--) {
+                array[i] = array[i - 1];
+            }
+            
+            // Записати мінімальний елемент на початок
+            array[0] = minValue;
+            
+            return array;
+        }
+
+        // Функція сортування методом вибору (за зменшенням)
+        function selectionSortDesc(array) {
+            let n = array.length;
+            
+            for (let i = 0; i < n - 1; i++) {
+                // Знайти максимальний елемент в невідсортованій частині
+                let maxIndex = i;
+                for (let j = i + 1; j < n; j++) {
+                    if (array[j] > array[maxIndex]) {
+                        maxIndex = j;
+                    }
+                }
+                
+                // Поміняти місцями поточний і максимальний елемент
+                if (maxIndex !== i) {
+                    let temp = array[i];
+                    array[i] = array[maxIndex];
+                    array[maxIndex] = temp;
+                }
+            }
+            
+            return array;
+        }
+
+        // Основна функція виконання завдання
+        function executeTask() {
+            console.clear();
+            console.log("=== ЗАВДАННЯ 7 - ВАРІАНТ 10 ===");
+            console.log("");
+            
+            // Запитати кількість елементів
+            let size = prompt("Введіть кількість елементів масиву:");
+            
+            if (size === null || size === "") {
+                alert("Операцію скасовано");
+                return;
+            }
+            
+            size = parseInt(size);
+            
+            if (isNaN(size) || size <= 0) {
+                alert("Невірне значення! Введіть додатне число.");
+                return;
+            }
+            
+            console.log("ЧАСТИНА 1: Переміщення мінімального елемента на початок");
+            console.log("========================================================");
+            
+            // Генерувати масив
+            let array = generateArray(size);
+            console.log(`Згенерований масив: [${array}]`);
+            
+            // Створити копію для відображення вхідного масиву
+            let originalArray = [...array];
+            
+            // Перемістити мінімальний елемент на початок
+            array = moveMinToStart(array);
+            console.log(`Масив після переміщення: [${array}]`);
+            console.log("");
+            
+            console.log("ЧАСТИНА 2: Сортування методом вибору (за зменшенням)");
+            console.log("=====================================================");
+            console.log(`Вхідний масив: [${array}]`);
+            
+            // Сортування
+            array = selectionSortDesc(array);
+            console.log(`Вихідний масив (відсортований): [${array}]`);
+            
+            console.log("");
+            console.log("=== ЗАВДАННЯ ВИКОНАНО ===");
+            
+            alert("Завдання виконано! Перегляньте результати в консолі.");
+        }
+    </script>
+</body>
+</html>

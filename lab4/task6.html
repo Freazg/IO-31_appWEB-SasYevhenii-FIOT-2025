@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 6 - Об'єднання масивів</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #667eea;
+        }
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #764ba2;
+        }
+        .code {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Завдання 6 - Функція makeArray</h1>
+        <p><strong>Умова:</strong> Напиши функцію makeArray, яка приймає три параметри: 
+        firstArray (масив), secondArray (масив) і maxLength (число). 
+        Функція створює новий масив, який містить всі елементи з firstArray, 
+        а потім всі елементи з secondArray. Якщо кількість елементів перевищує maxLength, 
+        повернути копію масиву з довжиною maxLength елементів.</p>
+        
+        <button onclick="testMakeArray()">Тестувати makeArray</button>
+
+        <h3>Код програми:</h3>
+        <div class="code">function makeArray(firstArray, secondArray, maxLength) {
+    // Створити новий масив, об'єднавши firstArray та secondArray
+    let newArray = firstArray.concat(secondArray);
+    
+    console.log(`Перший масив: [${firstArray}]`);
+    console.log(`Другий масив: [${secondArray}]`);
+    console.log(`Об'єднаний масив: [${newArray}]`);
+    console.log(`Максимальна довжина: ${maxLength}`);
+    
+    // Якщо кількість елементів перевищує maxLength
+    if (newArray.length > maxLength) {
+        // Повернути копію масиву з довжиною maxLength елементів
+        let result = newArray.slice(0, maxLength);
+        console.log(`Результат (обрізано): [${result}]`);
+        return result;
+    } else {
+        // В іншому випадку повернути весь новий масив
+        console.log(`Результат (повний): [${newArray}]`);
+        return newArray;
+    }
+}
+
+// Тестова функція
+function testMakeArray() {
+    console.log("=== Тестування функції makeArray ===");
+    console.log("");
+    
+    // Тест 1
+    console.log("--- Тест 1 ---");
+    let result1 = makeArray(["Mango", "Poly"], ["Ajax", "Chelsea"], 3);
+    console.log(`Повернутий масив: [${result1}]`);
+    console.log("");
+    
+    // Тест 2
+    console.log("--- Тест 2 ---");
+    let result2 = makeArray(["Mango", "Poly", "Houston"], ["Ajax", "Chelsea"], 4);
+    console.log(`Повернутий масив: [${result2}]`);
+    console.log("");
+    
+    // Тест 3
+    console.log("--- Тест 3 ---");
+    let result3 = makeArray(["Mango"], ["Ajax", "Chelsea", "Poly", "Houston"], 3);
+    console.log(`Повернутий масив: [${result3}]`);
+    console.log("");
+    
+    // Тест 4
+    console.log("--- Тест 4 ---");
+    let result4 = makeArray(["Earth", "Jupiter"], ["Neptune", "Mars", "Venus"], 2);
+    console.log(`Повернутий масив: [${result4}]`);
+    console.log("");
+    
+    // Тест 5
+    console.log("--- Тест 5 ---");
+    let result5 = makeArray(["Earth", "Jupiter"], ["Neptune", "Mars", "Venus"], 8);
+    console.log(`Повернутий масив: [${result5}]`);
+    
+    console.log("");
+    console.log("=== Тестування завершено ===");
+    
+    alert("Тестування завершено! Дивіться результати в консолі.");
+}</div>
+
+        <h3>Приклади виклику:</h3>
+        <div class="code">makeArray(["Mango", "Poly"], ["Ajax", "Chelsea"], 3)
+// Результат: ["Mango", "Poly", "Ajax"]
+
+makeArray(["Mango", "Poly", "Houston"], ["Ajax", "Chelsea"], 4)
+// Результат: ["Mango", "Poly", "Houston", "Ajax"]
+
+makeArray(["Mango"], ["Ajax", "Chelsea", "Poly", "Houston"], 3)
+// Результат: ["Mango", "Ajax", "Chelsea"]
+
+makeArray(["Earth", "Jupiter"], ["Neptune", "Mars", "Venus"], 2)
+// Результат: ["Earth", "Jupiter"]
+
+makeArray(["Earth", "Jupiter"], ["Neptune", "Mars", "Venus"], 8)
+// Результат: ["Earth", "Jupiter", "Neptune", "Mars", "Venus"]</div>
+    </div>
+
+    <script>
+        function makeArray(firstArray, secondArray, maxLength) {
+            // Створити новий масив, об'єднавши firstArray та secondArray
+            let newArray = firstArray.concat(secondArray);
+            
+            console.log(`Перший масив: [${firstArray}]`);
+            console.log(`Другий масив: [${secondArray}]`);
+            console.log(`Об'єднаний масив: [${newArray}]`);
+            console.log(`Максимальна довжина: ${maxLength}`);
+            
+            // Якщо кількість елементів перевищує maxLength
+            if (newArray.length > maxLength) {
+                // Повернути копію масиву з довжиною maxLength елементів
+                let result = newArray.slice(0, maxLength);
+                console.log(`Результат (обрізано): [${result}]`);
+                return result;
+            } else {
+                // В іншому випадку повернути весь новий масив
+                console.log(`Результат (повний): [${newArray}]`);
+                return newArray;
+            }
+        }
+
+        // Тестова функція
+        function testMakeArray() {
+            console.log("=== Тестування функції makeArray ===");
+            console.log("");
+            
+            // Тест 1
+            console.log("--- Тест 1 ---");
+            let result1 = makeArray(["Mango", "Poly"], ["Ajax", "Chelsea"], 3);
+            console.log(`Повернутий масив: [${result1}]`);
+            console.log("");
+            
+            // Тест 2
+            console.log("--- Тест 2 ---");
+            let result2 = makeArray(["Mango", "Poly", "Houston"], ["Ajax", "Chelsea"], 4);
+            console.log(`Повернутий масив: [${result2}]`);
+            console.log("");
+            
+            // Тест 3
+            console.log("--- Тест 3 ---");
+            let result3 = makeArray(["Mango"], ["Ajax", "Chelsea", "Poly", "Houston"], 3);
+            console.log(`Повернутий масив: [${result3}]`);
+            console.log("");
+            
+            // Тест 4
+            console.log("--- Тест 4 ---");
+            let result4 = makeArray(["Earth", "Jupiter"], ["Neptune", "Mars", "Venus"], 2);
+            console.log(`Повернутий масив: [${result4}]`);
+            console.log("");
+            
+            // Тест 5
+            console.log("--- Тест 5 ---");
+            let result5 = makeArray(["Earth", "Jupiter"], ["Neptune", "Mars", "Venus"], 8);
+            console.log(`Повернутий масив: [${result5}]`);
+            
+            console.log("");
+            console.log("=== Тестування завершено ===");
+            
+            alert("Тестування завершено! Дивіться результати в консолі.");
+        }
+    </script>
+</body>
+</html>
