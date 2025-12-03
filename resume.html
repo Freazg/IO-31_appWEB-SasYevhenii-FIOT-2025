@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Резюме - Сас Євгеній</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f4f4f4;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            display: flex;
+        }
+
+        .sidebar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            width: 300px;
+        }
+
+        .main-content {
+            padding: 40px;
+            flex: 1;
+        }
+
+        #profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
+
+        .name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .title {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .sidebar .section-title {
+            color: white;
+        }
+
+        .main-content .section-title {
+            color: #667eea;
+            border-bottom-color: #667eea;
+        }
+
+        .contact-item {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .icon {
+            width: 20px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .skill-item {
+            margin-bottom: 15px;
+        }
+
+        .skill-name {
+            margin-bottom: 5px;
+        }
+
+        .skill-bar {
+            background: rgba(255,255,255,0.3);
+            height: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-level {
+            background: white;
+            height: 100%;
+            border-radius: 5px;
+        }
+
+        .experience-item {
+            margin-bottom: 25px;
+        }
+
+        .job-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .company {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .period {
+            color: #999;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .experience-item ul {
+            margin-left: 20px;
+        }
+
+        .experience-item li {
+            margin-bottom: 5px;
+        }
+
+        .education-item {
+            margin-bottom: 20px;
+        }
+
+        .degree {
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .university {
+            font-style: italic;
+        }
+
+        .languages {
+            list-style: none;
+        }
+
+        .languages > li {
+            margin-bottom: 10px;
+        }
+
+        a[href] {
+            color: white;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .interests {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .interest-tag {
+            background: #f0f0f0;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+            }
+        }
+
+        .section:first-child {
+            margin-top: 0;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <img id="profile-photo" src="https://via.placeholder.com/150" alt="Фото профілю">
+            
+            <div class="name">Сас Євгеній</div>
+            <div class="title">Frontend Developer</div>
+
+            <div class="section">
+                <div class="section-title">Контакти</div>
+                <div class="contact-item">
+                    <span class="icon">Email:</span>
+                    <a href="mailto:qwerty2015f5@gmail.com">qwerty2015f5@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <span class="icon">GitHub:</span>
+                    <a href="https://github.com/Freazg" target="_blank">github.com/Freazg</a>
+                </div>
+                <div class="contact-item">
+                    <span class="icon">Локація:</span>
+                    Київ, Україна
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Навички</div>
+                
+                <div class="skill-item">
+                    <div class="skill-name">HTML/CSS</div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 90%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-name">JavaScript</div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 80%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-name">Python</div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 85%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-name">Git/GitHub</div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 75%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-name">Node.js</div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 70%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-name">Networking</div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 85%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Мови</div>
+                <ul class="languages">
+                    <li><strong>Українська</strong> - рідна</li>
+                    <li><strong>Англійська</strong> - B2</li>
+                    <li><strong>Російська</strong> - вільно</li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="section">
+                <div class="section-title">Про себе</div>
+                <p>
+                    Студент групи ІО-31, спеціалізуюсь на frontend розробці та автоматизації тестування. 
+                    Маю практичний досвід роботи з системами відеоспостереження Ajax Systems, викладання 
+                    мережевих технологій в Cisco Networking Academy та створення веб-застосунків.
+                </p>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Досвід роботи</div>
+                
+                <div class="experience-item">
+                    <div class="job-title">QA Automation Engineer</div>
+                    <div class="company">Ajax Systems</div>
+                    <div class="period">2025 - теперішній час</div>
+                    <ul>
+                        <li>Розробка автоматизованих тестів для камер відеоспостереження</li>
+                        <li>Робота з Python, Behave BDD framework, OpenCV</li>
+                        <li>Тестування функціоналу обертання камер та розпізнавання QR-кодів</li>
+                        <li>Налагодження інфраструктури тестування</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-title">Інструктор</div>
+                    <div class="company">Cisco Networking Academy</div>
+                    <div class="period">2023 - теперішній час (понад 1 рік)</div>
+                    <ul>
+                        <li>Викладання мережевих технологій</li>
+                        <li>Підготовка студентів до сертифікаційних іспитів</li>
+                        <li>Проведення практичних занять з налаштування мережевого обладнання</li>
+                        <li>Менторство студентів</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-title">Web Developer (Freelance)</div>
+                    <div class="company">Дитячий центр "Камелія"</div>
+                    <div class="period">2023</div>
+                    <ul>
+                        <li>Розробка веб-сайту для освітнього закладу</li>
+                        <li>Створення адаптивного дизайну з CSS анімаціями</li>
+                        <li>Реалізація респонсив-верстки</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Освіта</div>
+                
+                <div class="education-item">
+                    <div class="degree">Бакалавр, Комп'ютерні науки</div>
+                    <div class="university">Український університет</div>
+                    <div class="period">2021 - 2025</div>
+                    <p>Група: ІО-31</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Проєкти</div>
+                
+                <div class="experience-item">
+                    <div class="job-title">Habit Tracker</div>
+                    <div class="period">2024</div>
+                    <ul>
+                        <li>Веб-застосунок для відстеження звичок</li>
+                        <li>Технології: HTML, CSS, JavaScript</li>
+                        <li>Адаптивний дизайн, форми, таблиці</li>
+                        <li>Розгорнуто на GitHub Pages</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Інтереси</div>
+                <div class="interests">
+                    <span class="interest-tag">Web Development</span>
+                    <span class="interest-tag">Computer Vision</span>
+                    <span class="interest-tag">Networking</span>
+                    <span class="interest-tag">Hardware Projects</span>
+                    <span class="interest-tag">Gaming</span>
+                    <span class="interest-tag">Open Source</span>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
