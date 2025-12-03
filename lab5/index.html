@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна робота №5 - Сас Євгеній</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .info-block {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .info-block h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .info-block p {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .tasks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .task-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .task-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        }
+
+        .task-number {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .task-title {
+            font-size: 1.1em;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .task-description {
+            color: #666;
+            font-size: 0.9em;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .task-link {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .task-link:hover {
+            background: #764ba2;
+        }
+
+        .section-title {
+            color: white;
+            font-size: 1.8em;
+            margin: 40px 0 20px 0;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .variant-info {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Лабораторна робота №5</h1>
+            <p class="subtitle">ОБ'ЄКТ. МЕТОДИ ОБ'ЄКТА. МАСИВ ОБ'ЄКТІВ. CALLBACK. СТРІЛОЧНІ ФУНКЦІЇ</p>
+            <p class="subtitle">Студент: Сас Євгеній, група ІО-31</p>
+        </header>
+
+        <div class="info-block">
+            <h2>Мета роботи:</h2>
+            <p>Придбати практичні навички роботи з об'єктами, методами об'єкта, callback функціями та стрілочними функціями. 
+            Освоїти перебираючі методи масиву. Реалізація програм засобами мови JavaScript.</p>
+        </div>
+
+        <div class="variant-info">
+            <strong>Номер у списку: 20 (парний)</strong><br>
+            Виконані варіанти: 2, 4, 6, 8, 9, 10
+        </div>
+
+        <h2 class="section-title">ЗАВДАННЯ №1</h2>
+
+        <div class="tasks-grid">
+            <div class="task-card">
+                <div class="task-number">Варіант 2</div>
+                <div class="task-title">getProductDetails з callback</div>
+                <div class="task-description">
+                    Функція отримує деталі про товар та передає їх у successCallback або errorCallback
+                </div>
+                <a href="task1-2.html" class="task-link">Відкрити завдання</a>
+            </div>
+
+            <div class="task-card">
+                <div class="task-number">Варіант 4</div>
+                <div class="task-title">Concerts (стрілочні функції)</div>
+                <div class="task-description">
+                    Фільтрація майбутніх концертів та сортування у хронологічному порядку
+                </div>
+                <a href="task1-4.html" class="task-link">Відкрити завдання</a>
+            </div>
+
+            <div class="task-card">
+                <div class="task-number">Варіант 6</div>
+                <div class="task-title">Medicines зі знижкою 30%</div>
+                <div class="task-description">
+                    Обробка масиву медикаментів зі знижкою на товари дорожче 300 грн та додаванням id
+                </div>
+                <a href="task1-6.html" class="task-link">Відкрити завдання</a>
+            </div>
+
+            <div class="task-card">
+                <div class="task-number">Варіант 8</div>
+                <div class="task-title">Storage (функція-конструктор)</div>
+                <div class="task-description">
+                    Управління складом товарів: getItems, addItem, removeItem
+                </div>
+                <a href="task1-8.html" class="task-link">Відкрити завдання</a>
+            </div>
+
+            <div class="task-card">
+                <div class="task-number">Варіант 9</div>
+                <div class="task-title">Підрахунок тегів</div>
+                <div class="task-description">
+                    Підрахунок кількості кожного тега у масиві твітів
+                </div>
+                <a href="task1-9.html" class="task-link">Відкрити завдання</a>
+            </div>
+
+            <div class="task-card">
+                <div class="task-number">Варіант 10</div>
+                <div class="task-title">Перевірка дужок</div>
+                <div class="task-description">
+                    Перевірка правильності закриття дужок () {} [] у рядку JavaScript коду
+                </div>
+                <a href="task1-10.html" class="task-link">Відкрити завдання</a>
+            </div>
+        </div>
+
+        <h2 class="section-title">ЗАВДАННЯ №2</h2>
+
+        <div class="tasks-grid">
+            <div class="task-card">
+                <div class="task-number">Варіант 2</div>
+                <div class="task-title">Перевірка віку (some)</div>
+                <div class="task-description">
+                    Перевірка чи є хоча б один об'єкт з віком менше 20 років
+                </div>
+                <a href="task2-2.html" class="task-link">Відкрити завдання</a>
+            </div>
+
+            <div class="task-card">
+                <div class="task-number">Варіант 4</div>
+                <div class="task-title">Квадрати чисел (map)</div>
+                <div class="task-description">
+                    Створення нового масиву з квадратами кожного елементу вхідного масиву
+                </div>
+                <a href="task2-4.html" class="task-link">Відкрити завдання</a>
+            </div>
+
+            <div class="task-card">
+                <div class="task-number">Варіант 6</div>
+                <div class="task-title">Сортування за віком (sort)</div>
+                <div class="task-description">
+                    Сортування масиву об'єктів за віком у порядку зростання
+                </div>
+                <a href="task2-6.html" class="task-link">Відкрити завдання</a>
+            </div>
+
+            <div class="task-card">
+                <div class="task-number">Варіант 7</div>
+                <div class="task-title">Calculator (method chaining)</div>
+                <div class="task-description">
+                    Клас для арифметичних операцій з підтримкою ланцюжкових викликів
+                </div>
+                <a href="task2-7.html" class="task-link">Відкрити завдання</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 1.2 - getProductDetails</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #667eea;
+        }
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #764ba2;
+        }
+        .code {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Завдання 1.2 - getProductDetails з callback</h1>
+        
+        <p><strong>Умова:</strong> Написати функцію getProductDetails, яка приймає ідентифікатор товару productId 
+        та дві колбек-функції successCallback та errorCallback. Функція повинна отримати деталі про вказаний товар 
+        та передати їх у successCallback. У випадку якщо товар не знайдено, викликається errorCallback.</p>
+        
+        <button onclick="testProduct(101)">Тест: Товар знайдено (ID: 101)</button>
+        <button onclick="testProduct(999)">Тест: Товар НЕ знайдено (ID: 999)</button>
+        <button onclick="testProduct(102)">Тест: Товар знайдено (ID: 102)</button>
+
+        <h3>Код програми:</h3>
+        <div class="code">// База даних товарів
+const products = [
+    { id: 101, name: "Ноутбук", price: 25000, category: "Електроніка" },
+    { id: 102, name: "Смартфон", price: 15000, category: "Електроніка" },
+    { id: 103, name: "Навушники", price: 2500, category: "Аксесуари" },
+    { id: 104, name: "Клавіатура", price: 1500, category: "Аксесуари" }
+];
+
+// Функція getProductDetails
+function getProductDetails(productId, successCallback, errorCallback) {
+    console.log(`Шукаємо товар з ID: ${productId}`);
+    
+    // Пошук товару в базі даних
+    const product = products.find(item => item.id === productId);
+    
+    // Якщо товар знайдено
+    if (product) {
+        successCallback(product);
+    } else {
+        // Якщо товар не знайдено
+        errorCallback(`Товар з ID ${productId} не знайдено!`);
+    }
+}
+
+// Callback для успішного результату
+function successCallback(product) {
+    console.log("SUCCESS: Товар знайдено:");
+    console.log(`ID: ${product.id}`);
+    console.log(`Назва: ${product.name}`);
+    console.log(`Ціна: ${product.price} грн`);
+    console.log(`Категорія: ${product.category}`);
+    alert(`Товар знайдено!\n\nНазва: ${product.name}\nЦіна: ${product.price} грн`);
+}
+
+// Callback для помилки
+function errorCallback(errorMessage) {
+    console.log(`ERROR: ${errorMessage}`);
+    alert(errorMessage);
+}
+
+// Тестова функція
+function testProduct(productId) {
+    console.log("=".repeat(50));
+    getProductDetails(productId, successCallback, errorCallback);
+    console.log("=".repeat(50));
+}</div>
+    </div>
+
+    <script>
+        // База даних товарів
+        const products = [
+            { id: 101, name: "Ноутбук", price: 25000, category: "Електроніка" },
+            { id: 102, name: "Смартфон", price: 15000, category: "Електроніка" },
+            { id: 103, name: "Навушники", price: 2500, category: "Аксесуари" },
+            { id: 104, name: "Клавіатура", price: 1500, category: "Аксесуари" }
+        ];
+
+        // Функція getProductDetails
+        function getProductDetails(productId, successCallback, errorCallback) {
+            console.log(`Шукаємо товар з ID: ${productId}`);
+            
+            // Пошук товару в базі даних
+            const product = products.find(item => item.id === productId);
+            
+            // Якщо товар знайдено
+            if (product) {
+                successCallback(product);
+            } else {
+                // Якщо товар не знайдено
+                errorCallback(`Товар з ID ${productId} не знайдено!`);
+            }
+        }
+
+        // Callback для успішного результату
+        function successCallback(product) {
+            console.log("SUCCESS: Товар знайдено:");
+            console.log(`ID: ${product.id}`);
+            console.log(`Назва: ${product.name}`);
+            console.log(`Ціна: ${product.price} грн`);
+            console.log(`Категорія: ${product.category}`);
+            alert(`Товар знайдено!\n\nНазва: ${product.name}\nЦіна: ${product.price} грн`);
+        }
+
+        // Callback для помилки
+        function errorCallback(errorMessage) {
+            console.log(`ERROR: ${errorMessage}`);
+            alert(errorMessage);
+        }
+
+        // Тестова функція
+        function testProduct(productId) {
+            console.log("=".repeat(50));
+            getProductDetails(productId, successCallback, errorCallback);
+            console.log("=".repeat(50));
+        }
+
+        // Автоматичний тест при завантаженні
+        console.log("=== ЗАВДАННЯ 1.2 - getProductDetails ===");
+        console.log("Доступні товари:");
+        products.forEach(p => console.log(`ID: ${p.id}, Назва: ${p.name}`));
+        console.log("");
+    </script>
+</body>
+</html>

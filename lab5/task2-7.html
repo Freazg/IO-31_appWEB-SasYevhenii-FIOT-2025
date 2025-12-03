@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 2.7 - Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #667eea;
+        }
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #764ba2;
+        }
+        .code {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Завдання 2.7 - Calculator клас (Method Chaining)</h1>
+        
+        <p><strong>Умова:</strong> Розробити клас Calculator, який дозволяє виконувати арифметичні операції 
+        над числом за допомогою методів класу, підтримуючи ланцюжковий виклик (method chaining).</p>
+        
+        <button onclick="testCalculator()">Тестувати Calculator</button>
+
+        <h3>Код програми:</h3>
+        <div class="code">class Calculator {
+    constructor() {
+        this.value = 0;
+    }
+    
+    // Встановлює початкове значення
+    number(value) {
+        this.value = value;
+        console.log(`Встановлено значення: ${value}`);
+        return this; // Повертаємо this для ланцюжка
+    }
+    
+    // Додає value до поточного значення
+    add(value) {
+        this.value += value;
+        console.log(`Додано ${value}, результат: ${this.value}`);
+        return this;
+    }
+    
+    // Віднімає value від поточного значення
+    subtract(value) {
+        this.value -= value;
+        console.log(`Віднято ${value}, результат: ${this.value}`);
+        return this;
+    }
+    
+    // Множить поточне значення на value
+    multiply(value) {
+        this.value *= value;
+        console.log(`Помножено на ${value}, результат: ${this.value}`);
+        return this;
+    }
+    
+    // Ділить поточне значення на value
+    divide(value) {
+        if (value === 0) {
+            throw new Error("Ділення на нуль неможливе!");
+        }
+        this.value /= value;
+        console.log(`Поділено на ${value}, результат: ${this.value}`);
+        return this;
+    }
+    
+    // Повертає поточний результат
+    getResult() {
+        return this.value;
+    }
+}
+
+function testCalculator() {
+    console.log("=== ТЕСТУВАННЯ CALCULATOR ===");
+    console.log("");
+    
+    // Тест 1: Базовий приклад з завдання
+    console.log("Тест 1: (10 + 5 - 3) * 4 / 2");
+    const calc1 = new Calculator();
+    const result1 = calc1
+        .number(10)
+        .add(5)
+        .subtract(3)
+        .multiply(4)
+        .divide(2)
+        .getResult();
+    console.log(`Результат: ${result1}`);
+    console.log("");
+    
+    // Тест 2: Складніші обчислення
+    console.log("Тест 2: (100 - 50) / 5 + 20");
+    const calc2 = new Calculator();
+    const result2 = calc2
+        .number(100)
+        .subtract(50)
+        .divide(5)
+        .add(20)
+        .getResult();
+    console.log(`Результат: ${result2}`);
+    console.log("");
+    
+    // Тест 3: Ділення на нуль (помилка)
+    console.log("Тест 3: Спроба ділення на нуль");
+    try {
+        const calc3 = new Calculator();
+        calc3.number(10).divide(0);
+    } catch (error) {
+        console.log(`Помилка: ${error.message}`);
+    }
+    console.log("");
+    
+    alert(`Тестування завершено!\n\nРезультат 1: ${result1}\nРезультат 2: ${result2}\n\nДив. Console для деталей`);
+}</div>
+
+        <h3>Пояснення:</h3>
+        <ul>
+            <li><strong>class Calculator</strong> - оголошення класу</li>
+            <li><strong>constructor()</strong> - ініціалізація початкового значення</li>
+            <li><strong>return this</strong> - повернення самого об'єкта для ланцюжкових викликів</li>
+            <li><strong>number(value)</strong> - встановлює початкове значення</li>
+            <li><strong>add/subtract/multiply/divide</strong> - арифметичні операції</li>
+            <li><strong>getResult()</strong> - повертає фінальний результат</li>
+            <li><strong>Method chaining</strong> - можливість викликати методи один за одним</li>
+            <li><strong>throw new Error()</strong> - викидання помилки при діленні на нуль</li>
+        </ul>
+    </div>
+
+    <script>
+        class Calculator {
+            constructor() {
+                this.value = 0;
+            }
+            
+            // Встановлює початкове значення
+            number(value) {
+                this.value = value;
+                console.log(`Встановлено значення: ${value}`);
+                return this; // Повертаємо this для ланцюжка
+            }
+            
+            // Додає value до поточного значення
+            add(value) {
+                this.value += value;
+                console.log(`Додано ${value}, результат: ${this.value}`);
+                return this;
+            }
+            
+            // Віднімає value від поточного значення
+            subtract(value) {
+                this.value -= value;
+                console.log(`Віднято ${value}, результат: ${this.value}`);
+                return this;
+            }
+            
+            // Множить поточне значення на value
+            multiply(value) {
+                this.value *= value;
+                console.log(`Помножено на ${value}, результат: ${this.value}`);
+                return this;
+            }
+            
+            // Ділить поточне значення на value
+            divide(value) {
+                if (value === 0) {
+                    throw new Error("Ділення на нуль неможливе!");
+                }
+                this.value /= value;
+                console.log(`Поділено на ${value}, результат: ${this.value}`);
+                return this;
+            }
+            
+            // Повертає поточний результат
+            getResult() {
+                return this.value;
+            }
+        }
+
+        function testCalculator() {
+            console.log("=== ТЕСТУВАННЯ CALCULATOR ===");
+            console.log("");
+            
+            // Тест 1: Базовий приклад з завдання
+            console.log("Тест 1: (10 + 5 - 3) * 4 / 2");
+            const calc1 = new Calculator();
+            const result1 = calc1
+                .number(10)
+                .add(5)
+                .subtract(3)
+                .multiply(4)
+                .divide(2)
+                .getResult();
+            console.log(`Результат: ${result1}`);
+            console.log("");
+            
+            // Тест 2: Складніші обчислення
+            console.log("Тест 2: (100 - 50) / 5 + 20");
+            const calc2 = new Calculator();
+            const result2 = calc2
+                .number(100)
+                .subtract(50)
+                .divide(5)
+                .add(20)
+                .getResult();
+            console.log(`Результат: ${result2}`);
+            console.log("");
+            
+            // Тест 3: Ділення на нуль (помилка)
+            console.log("Тест 3: Спроба ділення на нуль");
+            try {
+                const calc3 = new Calculator();
+                calc3.number(10).divide(0);
+            } catch (error) {
+                console.log(`Помилка: ${error.message}`);
+            }
+            console.log("");
+            
+            alert(`Тестування завершено!\n\nРезультат 1: ${result1}\nРезультат 2: ${result2}\n\nДив. Console для деталей`);
+        }
+
+        // Автоматичний тест при завантаженні
+        console.log("=== ЗАВДАННЯ 2.7 - CALCULATOR (METHOD CHAINING) ===");
+        console.log("Приклад з завдання: 10 + 5 - 3 * 4 / 2 = 24");
+        const demoCalc = new Calculator();
+        const demoResult = demoCalc.number(10).add(5).subtract(3).multiply(4).divide(2).getResult();
+        console.log(`Очікуваний результат: 24`);
+        console.log(`Фактичний результат: ${demoResult}`);
+        console.log("");
+    </script>
+</body>
+</html>

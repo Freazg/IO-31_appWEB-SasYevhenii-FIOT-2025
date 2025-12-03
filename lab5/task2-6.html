@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 2.6 - Sort by Age</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #667eea;
+        }
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #764ba2;
+        }
+        .code {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Завдання 2.6 - Сортування за віком (sort)</h1>
+        
+        <p><strong>Умова:</strong> Відсортуйте масив об'єктів за віком у порядку зростання. 
+        Очікуваний результат: [{name: "Bob", age: 19}, {name: "John", age: 27}, {name: "Jane", age: 31}].</p>
+        
+        <button onclick="sortByAge()">Відсортувати за віком</button>
+
+        <h3>Код програми:</h3>
+        <div class="code">const users = [
+    { name: 'John', age: 27 },
+    { name: 'Jane', age: 31 },
+    { name: 'Bob', age: 19 },
+];
+
+function sortByAge() {
+    console.log("=== СОРТУВАННЯ ЗА ВІКОМ ===");
+    console.log("Початковий масив:");
+    console.log(users);
+    console.log("");
+    
+    console.log("Користувачі до сортування:");
+    users.forEach(user => {
+        console.log(`${user.name}: ${user.age} років`);
+    });
+    console.log("");
+    
+    // Створення копії масиву для сортування
+    // (щоб не змінювати оригінальний масив)
+    const sortedUsers = [...users].sort((a, b) => a.age - b.age);
+    
+    console.log("Відсортований масив (за віком, зростання):");
+    console.log(sortedUsers);
+    console.log("");
+    
+    console.log("Користувачі після сортування:");
+    sortedUsers.forEach(user => {
+        console.log(`${user.name}: ${user.age} років`);
+    });
+    console.log("");
+    
+    // Додатково: сортування за спаданням
+    const sortedUsersDesc = [...users].sort((a, b) => b.age - a.age);
+    console.log("Бонус - сортування за спаданням:");
+    console.log(sortedUsersDesc);
+    
+    alert(`Відсортовано за віком (зростання):\n\n${sortedUsers.map(u => `${u.name}: ${u.age}`).join("\n")}\n\nДив. Console для деталей`);
+}</div>
+
+        <h3>Пояснення:</h3>
+        <ul>
+            <li><strong>sort()</strong> - сортує масив на місці (змінює оригінальний масив)</li>
+            <li><strong>[...users]</strong> - створення копії масиву (spread operator)</li>
+            <li><strong>(a, b) => a.age - b.age</strong> - функція порівняння для сортування за зростанням</li>
+            <li><strong>a.age - b.age</strong> - якщо результат негативний, a йде перед b</li>
+            <li><strong>b.age - a.age</strong> - для сортування за спаданням</li>
+            <li>Функція порівняння повертає: &lt;0 (a перед b), 0 (рівні), &gt;0 (b перед a)</li>
+        </ul>
+    </div>
+
+    <script>
+        const users = [
+            { name: 'John', age: 27 },
+            { name: 'Jane', age: 31 },
+            { name: 'Bob', age: 19 },
+        ];
+
+        function sortByAge() {
+            console.log("=== СОРТУВАННЯ ЗА ВІКОМ ===");
+            console.log("Початковий масив:");
+            console.log(users);
+            console.log("");
+            
+            console.log("Користувачі до сортування:");
+            users.forEach(user => {
+                console.log(`${user.name}: ${user.age} років`);
+            });
+            console.log("");
+            
+            // Створення копії масиву для сортування
+            // (щоб не змінювати оригінальний масив)
+            const sortedUsers = [...users].sort((a, b) => a.age - b.age);
+            
+            console.log("Відсортований масив (за віком, зростання):");
+            console.log(sortedUsers);
+            console.log("");
+            
+            console.log("Користувачі після сортування:");
+            sortedUsers.forEach(user => {
+                console.log(`${user.name}: ${user.age} років`);
+            });
+            console.log("");
+            
+            // Додатково: сортування за спаданням
+            const sortedUsersDesc = [...users].sort((a, b) => b.age - a.age);
+            console.log("Бонус - сортування за спаданням:");
+            console.log(sortedUsersDesc);
+            
+            alert(`Відсортовано за віком (зростання):\n\n${sortedUsers.map(u => `${u.name}: ${u.age}`).join("\n")}\n\nДив. Console для деталей`);
+        }
+
+        // Автоматичне сортування при завантаженні
+        console.log("=== ЗАВДАННЯ 2.6 - СОРТУВАННЯ ЗА ВІКОМ (sort) ===");
+        const result = [...users].sort((a, b) => a.age - b.age);
+        console.log("Очікуваний результат:");
+        console.log('[{name: "Bob", age: 19}, {name: "John", age: 27}, {name: "Jane", age: 31}]');
+        console.log("Фактичний результат:");
+        console.log(result);
+        console.log("");
+    </script>
+</body>
+</html>

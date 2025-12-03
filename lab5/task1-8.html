@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 1.8 - Storage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #667eea;
+        }
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #764ba2;
+        }
+        .code {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Завдання 1.8 - Storage (Функція-конструктор)</h1>
+        
+        <p><strong>Умова:</strong> Написати функцію конструктор Storage який створює об'єкти для управління складом товарів. 
+        При виклику отримуватиме один аргумент - початковий масив товарів, і записувати їх у властивість items.</p>
+        
+        <button onclick="testStorage()">Тест Storage</button>
+
+        <h3>Код програми:</h3>
+        <div class="code">// Функція-конструктор Storage
+function Storage(initialItems) {
+    this.items = initialItems;
+    
+    // Метод getItems - повертає масив товарів
+    this.getItems = function() {
+        return this.items;
+    };
+    
+    // Метод addItem - додає новий товар
+    this.addItem = function(item) {
+        this.items.push(item);
+        console.log(`Товар "${item}" додано до складу`);
+    };
+    
+    // Метод removeItem - видаляє товар якщо він є
+    this.removeItem = function(item) {
+        const index = this.items.indexOf(item);
+        if (index !== -1) {
+            this.items.splice(index, 1);
+            console.log(`Товар "${item}" видалено зі складу`);
+        } else {
+            console.log(`Товар "${item}" не знайдено на складі`);
+        }
+    };
+}
+
+// Тестування Storage
+function testStorage() {
+    console.log("=== ТЕСТУВАННЯ STORAGE ===");
+    console.log("");
+    
+    // Створення складу з початковими товарами
+    const arr = ["apple", "banana", "mango"];
+    const storage = new Storage(arr);
+    
+    console.log("Початковий склад:");
+    console.log(storage.getItems());
+    console.log("");
+    
+    // Додавання товарів
+    console.log("Додаємо товари:");
+    storage.addItem("orange");
+    storage.addItem("grape");
+    console.log("Склад після додавання:");
+    console.log(storage.getItems());
+    console.log("");
+    
+    // Видалення товарів
+    console.log("Видаляємо товари:");
+    storage.removeItem("banana");
+    storage.removeItem("kiwi"); // Товару немає на складі
+    console.log("Склад після видалення:");
+    console.log(storage.getItems());
+    console.log("");
+    
+    alert(`Поточний склад містить ${storage.getItems().length} товарів\n\nДив. Console для деталей`);
+}</div>
+
+        <h3>Пояснення:</h3>
+        <ul>
+            <li><strong>function Storage()</strong> - функція-конструктор (викликається з new)</li>
+            <li><strong>this.items</strong> - властивість об'єкта для зберігання товарів</li>
+            <li><strong>this.getItems</strong> - метод для отримання масиву товарів</li>
+            <li><strong>this.addItem</strong> - метод для додавання нового товару</li>
+            <li><strong>this.removeItem</strong> - метод для видалення товару (якщо він є)</li>
+            <li><strong>indexOf()</strong> - пошук індексу товару в масиві</li>
+            <li><strong>splice()</strong> - видалення елемента з масиву</li>
+        </ul>
+    </div>
+
+    <script>
+        // Функція-конструктор Storage
+        function Storage(initialItems) {
+            this.items = initialItems;
+            
+            // Метод getItems - повертає масив товарів
+            this.getItems = function() {
+                return this.items;
+            };
+            
+            // Метод addItem - додає новий товар
+            this.addItem = function(item) {
+                this.items.push(item);
+                console.log(`Товар "${item}" додано до складу`);
+            };
+            
+            // Метод removeItem - видаляє товар якщо він є
+            this.removeItem = function(item) {
+                const index = this.items.indexOf(item);
+                if (index !== -1) {
+                    this.items.splice(index, 1);
+                    console.log(`Товар "${item}" видалено зі складу`);
+                } else {
+                    console.log(`Товар "${item}" не знайдено на складі`);
+                }
+            };
+        }
+
+        // Тестування Storage
+        function testStorage() {
+            console.log("=== ТЕСТУВАННЯ STORAGE ===");
+            console.log("");
+            
+            // Створення складу з початковими товарами
+            const arr = ["apple", "banana", "mango"];
+            const storage = new Storage(arr);
+            
+            console.log("Початковий склад:");
+            console.log(storage.getItems());
+            console.log("");
+            
+            // Додавання товарів
+            console.log("Додаємо товари:");
+            storage.addItem("orange");
+            storage.addItem("grape");
+            console.log("Склад після додавання:");
+            console.log(storage.getItems());
+            console.log("");
+            
+            // Видалення товарів
+            console.log("Видаляємо товари:");
+            storage.removeItem("banana");
+            storage.removeItem("kiwi"); // Товару немає на складі
+            console.log("Склад після видалення:");
+            console.log(storage.getItems());
+            console.log("");
+            
+            alert(`Поточний склад містить ${storage.getItems().length} товарів\n\nДив. Console для деталей`);
+        }
+
+        // Автоматичний тест при завантаженні
+        console.log("=== ЗАВДАННЯ 1.8 - STORAGE (ФУНКЦІЯ-КОНСТРУКТОР) ===");
+        const demoStorage = new Storage(["apple", "banana", "mango"]);
+        console.log("Демонстраційний склад створено:");
+        console.log(demoStorage.getItems());
+        console.log("");
+    </script>
+</body>
+</html>

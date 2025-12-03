@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 2.2 - Age Check</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #667eea;
+        }
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #764ba2;
+        }
+        .code {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Завдання 2.2 - Перевірка віку (some)</h1>
+        
+        <p><strong>Умова:</strong> Дано масив об'єктів. Перевірте, чи є хоча б один об'єкт з віком менше 20 років. 
+        Очікуваний результат: true.</p>
+        
+        <button onclick="checkAge()">Перевірити вік</button>
+
+        <h3>Код програми:</h3>
+        <div class="code">const people = [
+    { name: 'John', age: 27 },
+    { name: 'Jane', age: 31 },
+    { name: 'Bob', age: 19 },
+];
+
+function checkAge() {
+    console.log("=== ПЕРЕВІРКА ВІКУ ===");
+    console.log("Масив людей:");
+    console.log(people);
+    console.log("");
+    
+    // Перевірка чи є хоча б один об'єкт з віком менше 20 років
+    const hasYoungPerson = people.some(person => person.age < 20);
+    
+    console.log("Результат перевірки:");
+    console.log(`Чи є хоча б одна особа молодше 20 років? ${hasYoungPerson}`);
+    console.log("");
+    
+    // Виведення деталей
+    console.log("Деталі:");
+    people.forEach(person => {
+        const status = person.age < 20 ? "молодше 20" : "старше 20";
+        console.log(`${person.name}: ${person.age} років (${status})`);
+    });
+    
+    // Пошук усіх молодих людей
+    const youngPeople = people.filter(person => person.age < 20);
+    console.log("");
+    console.log(`Знайдено ${youngPeople.length} осіб молодше 20 років:`);
+    youngPeople.forEach(person => {
+        console.log(`- ${person.name}, ${person.age} років`);
+    });
+    
+    alert(`Результат: ${hasYoungPerson}\n\nЧи є особа молодше 20 років? ${hasYoungPerson ? "Так" : "Ні"}\n\nДив. Console для деталей`);
+}</div>
+
+        <h3>Пояснення:</h3>
+        <ul>
+            <li><strong>some()</strong> - перевіряє чи хоча б один елемент відповідає умові</li>
+            <li><strong>person => person.age < 20</strong> - стрілочна функція для перевірки віку</li>
+            <li><strong>Повертає true</strong> - якщо хоча б один елемент проходить перевірку</li>
+            <li><strong>Повертає false</strong> - якщо жоден елемент не проходить перевірку</li>
+            <li><strong>filter()</strong> - додатково використовується для пошуку всіх молодих людей</li>
+        </ul>
+    </div>
+
+    <script>
+        const people = [
+            { name: 'John', age: 27 },
+            { name: 'Jane', age: 31 },
+            { name: 'Bob', age: 19 },
+        ];
+
+        function checkAge() {
+            console.log("=== ПЕРЕВІРКА ВІКУ ===");
+            console.log("Масив людей:");
+            console.log(people);
+            console.log("");
+            
+            // Перевірка чи є хоча б один об'єкт з віком менше 20 років
+            const hasYoungPerson = people.some(person => person.age < 20);
+            
+            console.log("Результат перевірки:");
+            console.log(`Чи є хоча б одна особа молодше 20 років? ${hasYoungPerson}`);
+            console.log("");
+            
+            // Виведення деталей
+            console.log("Деталі:");
+            people.forEach(person => {
+                const status = person.age < 20 ? "молодше 20" : "старше 20";
+                console.log(`${person.name}: ${person.age} років (${status})`);
+            });
+            
+            // Пошук усіх молодих людей
+            const youngPeople = people.filter(person => person.age < 20);
+            console.log("");
+            console.log(`Знайдено ${youngPeople.length} осіб молодше 20 років:`);
+            youngPeople.forEach(person => {
+                console.log(`- ${person.name}, ${person.age} років`);
+            });
+            
+            alert(`Результат: ${hasYoungPerson}\n\nЧи є особа молодше 20 років? ${hasYoungPerson ? "Так" : "Ні"}\n\nДив. Console для деталей`);
+        }
+
+        // Автоматична перевірка при завантаженні
+        console.log("=== ЗАВДАННЯ 2.2 - ПЕРЕВІРКА ВІКУ (some) ===");
+        const result = people.some(person => person.age < 20);
+        console.log(`Очікуваний результат: true`);
+        console.log(`Фактичний результат: ${result}`);
+        console.log("");
+    </script>
+</body>
+</html>

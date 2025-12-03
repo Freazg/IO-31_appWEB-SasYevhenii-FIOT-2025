@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 1.6 - Medicines</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #667eea;
+        }
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #764ba2;
+        }
+        .code {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Завдання 1.6 - Medicines (Знижка 30%)</h1>
+        
+        <p><strong>Умова:</strong> Написати функцію, яка приймає масив об'єктів і повертає новий масив об'єктів, 
+        у якому є знижка на 30% на всі медикаменти ціна яких перевищує 300 грн у масиві. 
+        Надайте id для кожного медикамента.</p>
+        
+        <button onclick="processMedicines()">Обробити медикаменти</button>
+
+        <h3>Код програми:</h3>
+        <div class="code">const medicines = [
+    { name: "Noshpa", price: 170 },
+    { name: "Analgin", price: 55 },
+    { name: "Quanil", price: 310 },
+    { name: "Alphacholine", price: 390 },
+];
+
+function processMedicines() {
+    console.log("=== ОБРОБКА МЕДИКАМЕНТІВ ===");
+    console.log("Початковий масив:");
+    console.log(medicines);
+    console.log("");
+    
+    // Обробка медикаментів зі знижкою та додаванням id
+    const processedMedicines = medicines.map((medicine, index) => {
+        let finalPrice = medicine.price;
+        let hasDiscount = false;
+        
+        // Перевірка чи ціна перевищує 300 грн
+        if (medicine.price > 300) {
+            finalPrice = medicine.price * 0.7; // Знижка 30%
+            hasDiscount = true;
+        }
+        
+        return {
+            id: index + 1,
+            name: medicine.name,
+            originalPrice: medicine.price,
+            price: Math.round(finalPrice * 100) / 100,
+            discount: hasDiscount ? "30%" : "0%"
+        };
+    });
+    
+    console.log("Оброблений масив (з id та знижками):");
+    console.log(processedMedicines);
+    console.log("");
+    
+    console.log("Деталі:");
+    processedMedicines.forEach(med => {
+        const discountInfo = med.discount !== "0%" 
+            ? ` (знижка ${med.discount}, було ${med.originalPrice} грн)` 
+            : "";
+        console.log(`ID: ${med.id}, ${med.name}: ${med.price} грн${discountInfo}`);
+    });
+    
+    alert(`Оброблено ${processedMedicines.length} медикаментів\n\nДив. Console для деталей`);
+}</div>
+
+        <h3>Пояснення:</h3>
+        <ul>
+            <li><strong>map()</strong> - створює новий масив з обробленими елементами</li>
+            <li><strong>index + 1</strong> - генерація унікального id для кожного медикамента</li>
+            <li><strong>price > 300</strong> - перевірка умови для знижки</li>
+            <li><strong>price * 0.7</strong> - застосування знижки 30% (залишається 70% від ціни)</li>
+            <li><strong>Math.round()</strong> - округлення до 2 знаків після коми</li>
+        </ul>
+    </div>
+
+    <script>
+        const medicines = [
+            { name: "Noshpa", price: 170 },
+            { name: "Analgin", price: 55 },
+            { name: "Quanil", price: 310 },
+            { name: "Alphacholine", price: 390 },
+        ];
+
+        function processMedicines() {
+            console.log("=== ОБРОБКА МЕДИКАМЕНТІВ ===");
+            console.log("Початковий масив:");
+            console.log(medicines);
+            console.log("");
+            
+            // Обробка медикаментів зі знижкою та додаванням id
+            const processedMedicines = medicines.map((medicine, index) => {
+                let finalPrice = medicine.price;
+                let hasDiscount = false;
+                
+                // Перевірка чи ціна перевищує 300 грн
+                if (medicine.price > 300) {
+                    finalPrice = medicine.price * 0.7; // Знижка 30%
+                    hasDiscount = true;
+                }
+                
+                return {
+                    id: index + 1,
+                    name: medicine.name,
+                    originalPrice: medicine.price,
+                    price: Math.round(finalPrice * 100) / 100,
+                    discount: hasDiscount ? "30%" : "0%"
+                };
+            });
+            
+            console.log("Оброблений масив (з id та знижками):");
+            console.log(processedMedicines);
+            console.log("");
+            
+            console.log("Деталі:");
+            processedMedicines.forEach(med => {
+                const discountInfo = med.discount !== "0%" 
+                    ? ` (знижка ${med.discount}, було ${med.originalPrice} грн)` 
+                    : "";
+                console.log(`ID: ${med.id}, ${med.name}: ${med.price} грн${discountInfo}`);
+            });
+            
+            alert(`Оброблено ${processedMedicines.length} медикаментів\n\nДив. Console для деталей`);
+        }
+
+        // Автоматичне виконання при завантаженні
+        console.log("=== ЗАВДАННЯ 1.6 - MEDICINES ===");
+        console.log("Медикаменти та перевірка на знижку:");
+        medicines.forEach(med => {
+            const needsDiscount = med.price > 300;
+            console.log(`${med.name}: ${med.price} грн ${needsDiscount ? "(отримає знижку 30%)" : "(без знижки)"}`);
+        });
+        console.log("");
+    </script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 1.4 - Concerts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #667eea;
+        }
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #764ba2;
+        }
+        .code {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Завдання 1.4 - Concerts (Стрілочні функції)</h1>
+        
+        <p><strong>Умова:</strong> З об'єкту concerts отримати масив, який буде містити лише імена міст. 
+        З масиву потрібно прибрати міста, в яких концерт уже пройшов і відсортувати їх у хронологічному порядку. 
+        Очікуваний результат: ["Одеса", "Умань", "Харків"]. Застосувати стрілочні функції.</p>
+        
+        <button onclick="processConcerts()">Обробити концерти</button>
+
+        <h3>Код програми:</h3>
+        <div class="code">const concerts = {
+    Київ: new Date("2020-04-01"),
+    Умань: new Date("2025-07-02"),
+    Вінниця: new Date("2020-04-21"),
+    Одеса: new Date("2025-03-15"),
+    Хмельницький: new Date("2020-04-18"),
+    Харків: new Date("2025-07-10"),
+};
+
+function processConcerts() {
+    console.log("=== ОБРОБКА КОНЦЕРТІВ ===");
+    console.log("Початковий об'єкт:");
+    console.log(concerts);
+    console.log("");
+    
+    // Поточна дата
+    const today = new Date();
+    console.log(`Поточна дата: ${today.toLocaleDateString()}`);
+    console.log("");
+    
+    // Отримати масив міст з майбутніми концертами
+    // Використовуємо стрілочні функції
+    const futureConcerts = Object.keys(concerts)
+        .filter(city => concerts[city] > today)
+        .sort((a, b) => concerts[a] - concerts[b]);
+    
+    console.log("Міста з майбутніми концертами (відсортовані):");
+    console.log(futureConcerts);
+    console.log("");
+    
+    console.log("Деталі майбутніх концертів:");
+    futureConcerts.forEach(city => {
+        console.log(`${city}: ${concerts[city].toLocaleDateString()}`);
+    });
+    
+    alert(`Майбутні концерти:\n\n${futureConcerts.join(", ")}`);
+}</div>
+
+        <h3>Пояснення:</h3>
+        <ul>
+            <li><strong>Object.keys(concerts)</strong> - отримуємо масив ключів (назв міст)</li>
+            <li><strong>filter(city => concerts[city] > today)</strong> - фільтруємо тільки майбутні концерти</li>
+            <li><strong>sort((a, b) => concerts[a] - concerts[b])</strong> - сортуємо за датою у хронологічному порядку</li>
+            <li>Всі операції використовують стрілочні функції</li>
+        </ul>
+    </div>
+
+    <script>
+        const concerts = {
+            Київ: new Date("2020-04-01"),
+            Умань: new Date("2025-07-02"),
+            Вінниця: new Date("2020-04-21"),
+            Одеса: new Date("2025-03-15"),
+            Хмельницький: new Date("2020-04-18"),
+            Харків: new Date("2025-07-10"),
+        };
+
+        function processConcerts() {
+            console.log("=== ОБРОБКА КОНЦЕРТІВ ===");
+            console.log("Початковий об'єкт:");
+            console.log(concerts);
+            console.log("");
+            
+            // Поточна дата
+            const today = new Date();
+            console.log(`Поточна дата: ${today.toLocaleDateString()}`);
+            console.log("");
+            
+            // Отримати масив міст з майбутніми концертами
+            // Використовуємо стрілочні функції
+            const futureConcerts = Object.keys(concerts)
+                .filter(city => concerts[city] > today)
+                .sort((a, b) => concerts[a] - concerts[b]);
+            
+            console.log("Міста з майбутніми концертами (відсортовані):");
+            console.log(futureConcerts);
+            console.log("");
+            
+            console.log("Деталі майбутніх концертів:");
+            futureConcerts.forEach(city => {
+                console.log(`${city}: ${concerts[city].toLocaleDateString()}`);
+            });
+            
+            alert(`Майбутні концерти:\n\n${futureConcerts.join(", ")}`);
+        }
+
+        // Автоматичне виконання при завантаженні
+        console.log("=== ЗАВДАННЯ 1.4 - CONCERTS ===");
+        console.log("Всі концерти:");
+        Object.keys(concerts).forEach(city => {
+            const isPast = concerts[city] < new Date();
+            console.log(`${city}: ${concerts[city].toLocaleDateString()} ${isPast ? "(минув)" : "(майбутній)"}`);
+        });
+        console.log("");
+    </script>
+</body>
+</html>

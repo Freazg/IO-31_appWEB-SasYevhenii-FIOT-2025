@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 2.4 - Squares</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #667eea;
+        }
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #764ba2;
+        }
+        .code {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Завдання 2.4 - Квадрати чисел (map)</h1>
+        
+        <p><strong>Умова:</strong> Дано масив чисел [1, 2, 3, 4, 5]. Створіть новий масив, 
+        що містить квадрати кожного елементу вхідного масиву. Очікуваний результат: [1, 4, 9, 16, 25].</p>
+        
+        <button onclick="calculateSquares()">Обчислити квадрати</button>
+
+        <h3>Код програми:</h3>
+        <div class="code">const numbers = [1, 2, 3, 4, 5];
+
+function calculateSquares() {
+    console.log("=== ОБЧИСЛЕННЯ КВАДРАТІВ ===");
+    console.log("Початковий масив:");
+    console.log(numbers);
+    console.log("");
+    
+    // Створення нового масиву з квадратами чисел
+    const squares = numbers.map(num => num * num);
+    
+    console.log("Масив квадратів:");
+    console.log(squares);
+    console.log("");
+    
+    // Виведення деталей обчислень
+    console.log("Деталі обчислень:");
+    numbers.forEach((num, index) => {
+        console.log(`${num}² = ${squares[index]}`);
+    });
+    
+    // Альтернативний запис з Math.pow
+    const squaresAlt = numbers.map(num => Math.pow(num, 2));
+    console.log("");
+    console.log("Альтернативний спосіб (Math.pow):");
+    console.log(squaresAlt);
+    
+    // Альтернативний запис з ** (оператор піднесення до степеня)
+    const squaresAlt2 = numbers.map(num => num ** 2);
+    console.log("");
+    console.log("Альтернативний спосіб (оператор **):");
+    console.log(squaresAlt2);
+    
+    alert(`Початковий масив: [${numbers.join(", ")}]\n\nКвадрати: [${squares.join(", ")}]\n\nДив. Console для деталей`);
+}</div>
+
+        <h3>Пояснення:</h3>
+        <ul>
+            <li><strong>map()</strong> - створює новий масив з результатами виклику функції для кожного елемента</li>
+            <li><strong>num => num * num</strong> - стрілочна функція для обчислення квадрата</li>
+            <li><strong>num * num</strong> - множення числа на саме себе</li>
+            <li><strong>Math.pow(num, 2)</strong> - альтернативний спосіб піднесення до квадрата</li>
+            <li><strong>num ** 2</strong> - оператор піднесення до степеня (ES2016)</li>
+            <li><strong>Не змінює</strong> початковий масив, створює новий</li>
+        </ul>
+    </div>
+
+    <script>
+        const numbers = [1, 2, 3, 4, 5];
+
+        function calculateSquares() {
+            console.log("=== ОБЧИСЛЕННЯ КВАДРАТІВ ===");
+            console.log("Початковий масив:");
+            console.log(numbers);
+            console.log("");
+            
+            // Створення нового масиву з квадратами чисел
+            const squares = numbers.map(num => num * num);
+            
+            console.log("Масив квадратів:");
+            console.log(squares);
+            console.log("");
+            
+            // Виведення деталей обчислень
+            console.log("Деталі обчислень:");
+            numbers.forEach((num, index) => {
+                console.log(`${num}² = ${squares[index]}`);
+            });
+            
+            // Альтернативний запис з Math.pow
+            const squaresAlt = numbers.map(num => Math.pow(num, 2));
+            console.log("");
+            console.log("Альтернативний спосіб (Math.pow):");
+            console.log(squaresAlt);
+            
+            // Альтернативний запис з ** (оператор піднесення до степеня)
+            const squaresAlt2 = numbers.map(num => num ** 2);
+            console.log("");
+            console.log("Альтернативний спосіб (оператор **):");
+            console.log(squaresAlt2);
+            
+            alert(`Початковий масив: [${numbers.join(", ")}]\n\nКвадрати: [${squares.join(", ")}]\n\nДив. Console для деталей`);
+        }
+
+        // Автоматичне обчислення при завантаженні
+        console.log("=== ЗАВДАННЯ 2.4 - КВАДРАТИ ЧИСЕЛ (map) ===");
+        const result = numbers.map(num => num * num);
+        console.log(`Очікуваний результат: [1, 4, 9, 16, 25]`);
+        console.log(`Фактичний результат: [${result.join(", ")}]`);
+        console.log("");
+    </script>
+</body>
+</html>

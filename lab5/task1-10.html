@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 1.10 - Check Brackets</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #667eea;
+        }
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #764ba2;
+        }
+        .code {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Завдання 1.10 - Перевірка дужок</h1>
+        
+        <p><strong>Умова:</strong> Напишіть функцію checkBrackets(str) яка приймає рядок js коду і перевіряє 
+        правильність закриття дужок () {} []. Якщо рядок містить коректний код функція повертає true. 
+        В іншому випадку повертає false.</p>
+        
+        <button onclick="testBrackets()">Тестувати всі приклади</button>
+
+        <h3>Код програми:</h3>
+        <div class="code">function checkBrackets(str) {
+    const stack = [];
+    const brackets = {
+        '(': ')',
+        '{': '}',
+        '[': ']'
+    };
+    
+    for (let char of str) {
+        // Якщо відкриваюча дужка - додаємо в стек
+        if (brackets[char]) {
+            stack.push(char);
+        }
+        // Якщо закриваюча дужка
+        else if (char === ')' || char === '}' || char === ']') {
+            // Якщо стек порожній - помилка
+            if (stack.length === 0) {
+                return false;
+            }
+            
+            // Беремо останню відкриваючу дужку
+            const lastBracket = stack.pop();
+            
+            // Перевіряємо чи відповідає закриваюча дужка
+            if (brackets[lastBracket] !== char) {
+                return false;
+            }
+        }
+    }
+    
+    // Якщо стек не порожній - є незакриті дужки
+    return stack.length === 0;
+}
+
+function testBrackets() {
+    console.log("=== ПЕРЕВІРКА ДУЖОК ===");
+    console.log("");
+    
+    // Тестові випадки
+    const tests = [
+        { code: "function test() { return [1, 2, 3]; }", expected: true },
+        { code: "const arr = [1, 2, (3 + 4)]", expected: true },
+        { code: "if (x > 0) { console.log('positive'); }", expected: true },
+        { code: "function test() { return [1, 2, 3; }", expected: false },
+        { code: "const arr = [1, 2, (3 + 4]", expected: false },
+        { code: "if (x > 0 { console.log('error'); }", expected: false },
+        { code: "{{[[()]]}", expected: false },
+        { code: "{{[[(())]]}}", expected: true }
+    ];
+    
+    let passed = 0;
+    let failed = 0;
+    
+    tests.forEach((test, index) => {
+        const result = checkBrackets(test.code);
+        const status = result === test.expected ? "PASSED" : "FAILED";
+        
+        console.log(`Тест ${index + 1}: ${status}`);
+        console.log(`Код: ${test.code}`);
+        console.log(`Результат: ${result}, Очікувалось: ${test.expected}`);
+        console.log("");
+        
+        if (result === test.expected) {
+            passed++;
+        } else {
+            failed++;
+        }
+    });
+    
+    console.log("=== РЕЗУЛЬТАТИ ===");
+    console.log(`Успішно: ${passed}/${tests.length}`);
+    console.log(`Провалено: ${failed}/${tests.length}`);
+    
+    alert(`Тестування завершено!\n\nУспішно: ${passed}/${tests.length}\nПровалено: ${failed}/${tests.length}\n\nДив. Console для деталей`);
+}</div>
+
+        <h3>Пояснення:</h3>
+        <ul>
+            <li><strong>stack</strong> - стек для зберігання відкриваючих дужок</li>
+            <li><strong>brackets</strong> - об'єкт відповідності відкриваючих та закриваючих дужок</li>
+            <li><strong>stack.push()</strong> - додавання відкриваючої дужки в стек</li>
+            <li><strong>stack.pop()</strong> - видалення останньої дужки зі стеку</li>
+            <li><strong>Алгоритм:</strong> кожна закриваюча дужка має відповідати останній відкриваючій</li>
+            <li><strong>return stack.length === 0</strong> - всі дужки мають бути закриті</li>
+        </ul>
+    </div>
+
+    <script>
+        function checkBrackets(str) {
+            const stack = [];
+            const brackets = {
+                '(': ')',
+                '{': '}',
+                '[': ']'
+            };
+            
+            for (let char of str) {
+                // Якщо відкриваюча дужка - додаємо в стек
+                if (brackets[char]) {
+                    stack.push(char);
+                }
+                // Якщо закриваюча дужка
+                else if (char === ')' || char === '}' || char === ']') {
+                    // Якщо стек порожній - помилка
+                    if (stack.length === 0) {
+                        return false;
+                    }
+                    
+                    // Беремо останню відкриваючу дужку
+                    const lastBracket = stack.pop();
+                    
+                    // Перевіряємо чи відповідає закриваюча дужка
+                    if (brackets[lastBracket] !== char) {
+                        return false;
+                    }
+                }
+            }
+            
+            // Якщо стек не порожній - є незакриті дужки
+            return stack.length === 0;
+        }
+
+        function testBrackets() {
+            console.log("=== ПЕРЕВІРКА ДУЖОК ===");
+            console.log("");
+            
+            // Тестові випадки
+            const tests = [
+                { code: "function test() { return [1, 2, 3]; }", expected: true },
+                { code: "const arr = [1, 2, (3 + 4)]", expected: true },
+                { code: "if (x > 0) { console.log('positive'); }", expected: true },
+                { code: "function test() { return [1, 2, 3; }", expected: false },
+                { code: "const arr = [1, 2, (3 + 4]", expected: false },
+                { code: "if (x > 0 { console.log('error'); }", expected: false },
+                { code: "{{[[()]]}", expected: false },
+                { code: "{{[[(())]]}}", expected: true }
+            ];
+            
+            let passed = 0;
+            let failed = 0;
+            
+            tests.forEach((test, index) => {
+                const result = checkBrackets(test.code);
+                const status = result === test.expected ? "PASSED" : "FAILED";
+                
+                console.log(`Тест ${index + 1}: ${status}`);
+                console.log(`Код: ${test.code}`);
+                console.log(`Результат: ${result}, Очікувалось: ${test.expected}`);
+                console.log("");
+                
+                if (result === test.expected) {
+                    passed++;
+                } else {
+                    failed++;
+                }
+            });
+            
+            console.log("=== РЕЗУЛЬТАТИ ===");
+            console.log(`Успішно: ${passed}/${tests.length}`);
+            console.log(`Провалено: ${failed}/${tests.length}`);
+            
+            alert(`Тестування завершено!\n\nУспішно: ${passed}/${tests.length}\nПровалено: ${failed}/${tests.length}\n\nДив. Console для деталей`);
+        }
+
+        // Автоматичний тест при завантаженні
+        console.log("=== ЗАВДАННЯ 1.10 - ПЕРЕВІРКА ДУЖОК ===");
+        console.log("Приклади перевірки:");
+        console.log("'(){}[]' =>", checkBrackets("(){}[]"));
+        console.log("'({[]})' =>", checkBrackets("({[]})"));
+        console.log("'(]' =>", checkBrackets("(]"));
+        console.log("");
+    </script>
+</body>
+</html>
