@@ -29,7 +29,7 @@ header {
     margin-bottom: 30px;
 }
 
-/* Дочірній селектор - header > .container */
+/* Дочірній селектор */
 header .container {
     display: flex;
     justify-content: space-between;
@@ -98,6 +98,7 @@ nav a:hover {
     margin: 20px auto;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    display: block;
 }
 
 /* Селектор класу - features */
@@ -319,4 +320,190 @@ h2 + p {
 /* Селектор нащадка - .hero p */
 .hero p {
     line-height: 1.8;
+}
+
+/* ============================================
+   АДАПТИВНА ВЕРСТКА - МЕДІА-ЗАПИТИ
+   ============================================ */
+
+/* Desktop - великі екрани (1200px і більше) */
+@media screen and (min-width: 1200px) {
+    .container {
+        max-width: 1200px;
+    }
+}
+
+/* Tablet - планшети (768px - 1199px) */
+@media screen and (max-width: 1199px) {
+    .container {
+        max-width: 960px;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    header .container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+}
+
+/* Tablet - маленькі планшети та великі телефони (576px - 767px) */
+@media screen and (max-width: 767px) {
+    .container {
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    h3 {
+        font-size: 1.3em;
+    }
+
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    nav a {
+        display: block;
+        width: 100%;
+    }
+
+    .hero, .features, .lists-section, .form-section, .links-section {
+        padding: 20px;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        font-size: 12px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .radio-group, .checkbox-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .link-button {
+        display: block;
+        margin: 10px 0;
+    }
+}
+
+/* Mobile - смартфони (до 575px) */
+@media screen and (max-width: 575px) {
+    body {
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 5px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    h2 {
+        font-size: 1.3em;
+    }
+
+    h3 {
+        font-size: 1.1em;
+    }
+
+    h4 {
+        font-size: 1em;
+    }
+
+    .hero, .features, .lists-section, .form-section, .links-section {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+
+    .hero-image {
+        max-width: 100%;
+    }
+
+    nav ul {
+        gap: 5px;
+    }
+
+    nav a {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    table {
+        font-size: 11px;
+    }
+
+    th, td {
+        padding: 8px 5px;
+    }
+
+    ul, ol {
+        margin-left: 20px;
+    }
+
+    button {
+        padding: 12px 30px;
+        font-size: 16px;
+        width: 100%;
+    }
+
+    footer {
+        font-size: 12px;
+        padding: 15px 0;
+    }
+}
+
+/* Логічні оператори в медіа-запитах */
+@media screen and (min-width: 768px) and (max-width: 1199px) and (orientation: landscape) {
+    .hero {
+        display: flex;
+        align-items: center;
+        text-align: left;
+    }
+
+    .hero-image {
+        margin-right: 20px;
+    }
 }
