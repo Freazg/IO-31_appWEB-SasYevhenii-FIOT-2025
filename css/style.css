@@ -1,0 +1,322 @@
+/* Універсальний селектор */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Селектор тегу - body */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+/* Селектор класу - container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Селектор тегу - header */
+header {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+/* Дочірній селектор - header > .container */
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Селектор тегу - h1, h2, h3, h4 */
+h1 {
+    color: #667eea;
+    font-size: 2.5em;
+}
+
+h2 {
+    color: #667eea;
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+h3 {
+    color: #764ba2;
+    margin: 25px 0 15px;
+    font-size: 1.5em;
+}
+
+h4 {
+    color: #555;
+    margin: 20px 0 10px;
+    font-size: 1.2em;
+}
+
+/* Селектор тегу - nav */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+/* Псевдоклас :hover */
+nav a:hover {
+    background: #667eea;
+    color: white;
+}
+
+/* Селектор класу - hero */
+.hero {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* Селектор класу - hero-image */
+.hero-image {
+    max-width: 300px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Селектор класу - features */
+.features {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* Селектор тегу - table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Селектор тегу - thead */
+thead {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+/* Селектори тегів - th, td */
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Псевдоклас :hover для tbody tr */
+tbody tr:hover {
+    background: #f5f5f5;
+}
+
+/* Псевдоклас :last-child */
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Селектор класу - lists-section */
+.lists-section {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* Селектори тегів - ul, ol */
+ul, ol {
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+li {
+    margin: 10px 0;
+    padding-left: 10px;
+}
+
+/* Селектор класу - nested-list */
+.nested-list {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+/* Селектор класу - form-section */
+.form-section {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* Селектор тегу - form */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Селектор класу - form-group */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Селектор тегу - label */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+}
+
+/* Селектор атрибуту - input[type="text"] */
+input[type="text"],
+input[type="email"],
+input[type="date"],
+textarea,
+select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+/* Псевдоклас :focus */
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+/* Селектор тегу - textarea */
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Селектори класів - radio-group, checkbox-group */
+.radio-group,
+.checkbox-group {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Селектор атрибуту - input[type="radio"] */
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 8px;
+    width: 20px;
+    height: 20px;
+}
+
+/* Селектор тегу - button */
+button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Псевдоклас :hover для button */
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* Селектор класу - links-section */
+.links-section {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+/* Селектор класу - link-button */
+.link-button {
+    display: inline-block;
+    margin: 10px;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: transform 0.2s;
+}
+
+/* Псевдоклас :hover для link-button */
+.link-button:hover {
+    transform: scale(1.05);
+}
+
+/* Селектор тегу - footer */
+footer {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 30px;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+}
+
+footer p {
+    color: #666;
+}
+
+footer a {
+    color: #667eea;
+    text-decoration: none;
+}
+
+/* Псевдоклас :hover для footer a */
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Сусідній селектор - h2 + p */
+h2 + p {
+    font-style: italic;
+}
+
+/* Селектор нащадка - .hero p */
+.hero p {
+    line-height: 1.8;
+}
