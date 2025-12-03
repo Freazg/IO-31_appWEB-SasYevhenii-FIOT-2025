@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 2 - Таблична верстка (Варіант 10)</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #667eea;
+            margin: 30px 0 20px;
+        }
+
+        /* Фіксована таблична верстка */
+        .fixed-table-layout {
+            width: 600px;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        .fixed-table-layout td {
+            border: 2px solid #333;
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .fixed-table-layout .header {
+            background: #4169e1;
+            color: white;
+            height: 80px;
+        }
+
+        .fixed-table-layout .sidebar {
+            background: #ffa500;
+            color: white;
+            width: 150px;
+            height: 300px;
+        }
+
+        .fixed-table-layout .content {
+            background: white;
+            height: 300px;
+        }
+
+        .fixed-table-layout .footer {
+            background: #4169e1;
+            color: white;
+            height: 80px;
+        }
+
+        /* Гумова таблична верстка */
+        .fluid-table-layout {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        .fluid-table-layout td {
+            border: 2px solid #333;
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .fluid-table-layout .header {
+            background: #4169e1;
+            color: white;
+            height: 80px;
+        }
+
+        .fluid-table-layout .sidebar {
+            background: #ffa500;
+            color: white;
+            width: 25%;
+        }
+
+        .fluid-table-layout .content {
+            background: white;
+            height: 300px;
+        }
+
+        .fluid-table-layout .footer {
+            background: #4169e1;
+            color: white;
+            height: 80px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .back-link:hover {
+            background: #764ba2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">Повернутися на головну</a>
+        
+        <h1>Завдання 2 - Таблична верстка</h1>
+        <p style="text-align: center;">Варіант 10: Вертикальний макет з боковою панеллю зліва</p>
+
+        <h2>Фіксована таблична верстка</h2>
+        <table class="fixed-table-layout">
+            <tr>
+                <td colspan="2" class="header">1 - Шапка (Header)</td>
+            </tr>
+            <tr>
+                <td class="sidebar">2 - Бокова панель (Sidebar)</td>
+                <td class="content">4 - Контент (Content)</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="footer">3 - Підвал (Footer)</td>
+            </tr>
+        </table>
+
+        <h2>Гумова таблична верстка</h2>
+        <table class="fluid-table-layout">
+            <tr>
+                <td colspan="2" class="header">1 - Шапка (Header)</td>
+            </tr>
+            <tr>
+                <td class="sidebar">2 - Бокова панель (Sidebar)</td>
+                <td class="content">4 - Контент (Content)</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="footer">3 - Підвал (Footer)</td>
+            </tr>
+        </table>
+
+        <a href="../index.html" class="back-link">Повернутися на головну</a>
+    </div>
+</body>
+</html>

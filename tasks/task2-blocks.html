@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 2 - Блокова верстка (Варіант 1)</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #667eea;
+            margin: 30px 0 20px;
+            clear: both;
+        }
+
+        /* Фіксована блокова верстка */
+        .fixed-layout {
+            width: 600px;
+            margin: 20px auto;
+            border: 2px solid #333;
+        }
+
+        .fixed-layout .header {
+            background: #4169e1;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+            height: 60px;
+            line-height: 60px;
+        }
+
+        .fixed-layout .sidebar-left {
+            background: #ffa500;
+            color: white;
+            width: 150px;
+            float: left;
+            height: 300px;
+            text-align: center;
+            padding: 20px;
+            font-weight: bold;
+            box-sizing: border-box;
+        }
+
+        .fixed-layout .content {
+            background: white;
+            margin-left: 150px;
+            margin-right: 150px;
+            height: 300px;
+            text-align: center;
+            padding: 20px;
+            font-weight: bold;
+            box-sizing: border-box;
+        }
+
+        .fixed-layout .sidebar-right {
+            background: #ffa500;
+            color: white;
+            width: 150px;
+            float: right;
+            height: 300px;
+            text-align: center;
+            padding: 20px;
+            font-weight: bold;
+            box-sizing: border-box;
+        }
+
+        .fixed-layout .footer {
+            background: #4169e1;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+            clear: both;
+            height: 60px;
+            line-height: 60px;
+        }
+
+        /* Гумова блокова верстка */
+        .fluid-layout {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            border: 2px solid #333;
+        }
+
+        .fluid-layout .header {
+            background: #4169e1;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+            height: 60px;
+            line-height: 60px;
+        }
+
+        .fluid-layout .sidebar-left {
+            background: #ffa500;
+            color: white;
+            width: 25%;
+            float: left;
+            height: 300px;
+            text-align: center;
+            padding: 20px;
+            font-weight: bold;
+            box-sizing: border-box;
+        }
+
+        .fluid-layout .content {
+            background: white;
+            width: 50%;
+            float: left;
+            height: 300px;
+            text-align: center;
+            padding: 20px;
+            font-weight: bold;
+            box-sizing: border-box;
+        }
+
+        .fluid-layout .sidebar-right {
+            background: #ffa500;
+            color: white;
+            width: 25%;
+            float: left;
+            height: 300px;
+            text-align: center;
+            padding: 20px;
+            font-weight: bold;
+            box-sizing: border-box;
+        }
+
+        .fluid-layout .footer {
+            background: #4169e1;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+            clear: both;
+            height: 60px;
+            line-height: 60px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .back-link:hover {
+            background: #764ba2;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">Повернутися на головну</a>
+        
+        <h1>Завдання 2 - Блокова верстка (плаваючі елементи)</h1>
+        <p style="text-align: center;">Варіант 1: Класичний трьохколонковий макет</p>
+
+        <h2>Фіксована блокова верстка</h2>
+        <div class="fixed-layout clearfix">
+            <div class="header">1 - Шапка (Header)</div>
+            <div class="sidebar-left">5 - Ліва бокова панель</div>
+            <div class="sidebar-right">2 - Права бокова панель</div>
+            <div class="content">4 - Контент (Content)</div>
+            <div class="footer">3 - Підвал (Footer)</div>
+        </div>
+
+        <h2>Гумова блокова верстка</h2>
+        <div class="fluid-layout clearfix">
+            <div class="header">1 - Шапка (Header)</div>
+            <div class="sidebar-left">5 - Ліва бокова панель</div>
+            <div class="content">4 - Контент (Content)</div>
+            <div class="sidebar-right">2 - Права бокова панель</div>
+            <div class="footer">3 - Підвал (Footer)</div>
+        </div>
+
+        <a href="../index.html" class="back-link">Повернутися на головну</a>
+    </div>
+</body>
+</html>
