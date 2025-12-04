@@ -26,7 +26,7 @@
         function getRandomHexColor() {
             return `#${Math.floor(Math.random() * 16777215)
                 .toString(16)
-                .padStart(6, 0)}`;
+                .padStart(6, '0')}`;
         }
 
         const changeColorBtn = document.querySelector('.change-color');
@@ -36,7 +36,7 @@
             console.log('=== ЗМІНА КОЛЬОРУ ФОНУ ===');
             
             // Отримуємо поточний колір
-            const currentColor = document.body.style.backgroundColor || 'none';
+            const currentColor = document.body.style.backgroundColor || 'початковий';
             console.log(`Поточний колір фону: ${currentColor}`);
 
             // Генеруємо новий випадковий колір
