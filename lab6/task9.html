@@ -21,8 +21,7 @@
         <p>Використовується функція getRandomHexColor() для генерації випадкового кольору в hex-форматі. 
         При кліку на кнопку змінюється колір фону body та оновлюється текст span.color.</p>
     </div>
-
-    <script>
+<script>
         function getRandomHexColor() {
             return `#${Math.floor(Math.random() * 16777215)
                 .toString(16)
@@ -31,6 +30,7 @@
 
         const changeColorBtn = document.querySelector('.change-color');
         const colorSpan = document.querySelector('.color');
+        const container = document.querySelector('.container');
 
         changeColorBtn.addEventListener('click', function() {
             console.log('=== ЗМІНА КОЛЬОРУ ФОНУ ===');
@@ -43,11 +43,13 @@
             const newColor = getRandomHexColor();
             console.log(`Новий колір (hex): ${newColor}`);
 
-            // Змінюємо колір фону body
+            // Змінюємо колір фону body та контейнера
             document.body.style.backgroundColor = newColor;
+            container.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
 
             // Оновлюємо текст у span
             colorSpan.textContent = newColor;
+            colorSpan.style.color = newColor;
 
             console.log(`Колір фону змінено на: ${newColor}`);
             console.log('');
