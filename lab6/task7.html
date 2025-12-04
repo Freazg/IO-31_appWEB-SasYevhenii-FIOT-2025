@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 7 - Categories</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Завдання 7 - Categories</h1>
+        <p><strong>Умова:</strong> Порахувати і вивести в консоль кількість категорій в ul#categories. 
+        Для кожного елемента li.item знайти і вивести в консоль текст заголовку та кількість елементів в категорії.</p>
+
+        <ul id="categories">
+            <li class="item">
+                <h2>Animals</h2>
+                <ul>
+                    <li>Cat</li>
+                    <li>Hamster</li>
+                    <li>Horse</li>
+                    <li>Parrot</li>
+                </ul>
+            </li>
+            <li class="item">
+                <h2>Products</h2>
+                <ul>
+                    <li>Bread</li>
+                    <li>Prasley</li>
+                    <li>Cheese</li>
+                </ul>
+            </li>
+            <li class="item">
+                <h2>Technologies</h2>
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                    <li>React</li>
+                    <li>Node.js</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2>Пояснення:</h2>
+        <p>Використовується querySelectorAll для отримання всіх категорій, 
+        forEach для їх перебору, querySelector для пошуку заголовку та 
+        querySelectorAll для підрахунку елементів в кожній категорії.</p>
+    </div>
+
+    <script>
+        const categories = document.querySelectorAll('#categories .item');
+
+        console.log('=== ЗАВДАННЯ 7 - CATEGORIES ===');
+        console.log('');
+        
+        // Виводимо загальну кількість категорій
+        console.log(`Number of categories: ${categories.length}`);
+        console.log('');
+
+        // Перебираємо кожну категорію
+        categories.forEach(category => {
+            // Знаходимо заголовок категорії (h2)
+            const title = category.querySelector('h2').textContent;
+            
+            // Знаходимо всі елементи в категорії (li всередині вкладеного ul)
+            const items = category.querySelectorAll('ul li');
+            
+            // Виводимо інформацію про категорію
+            console.log(`Category: ${title}`);
+            console.log(`Elements: ${items.length}`);
+            console.log('');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 10 - Create/Destroy Boxes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Завдання 10 - Create/Destroy Boxes</h1>
+        <p><strong>Умова:</strong> Користувач вводить кількість елементів (1-100). 
+        По кліку на Create рендериться колекція div елементів. Перший 30x30px, кожен наступний більший на 10px. 
+        Усі елементи мають випадковий колір фону. Кнопка Destroy очищає колекцію.</p>
+
+        <div id="controls">
+            <input type="number" min="1" max="100" step="1" />
+            <button type="button" data-create>Create</button>
+            <button type="button" data-destroy>Destroy</button>
+        </div>
+
+        <div id="boxes"></div>
+
+        <h2>Пояснення:</h2>
+        <p>Використовується валідація значення input (1-100), функція createBoxes() створює колекцію div елементів 
+        з різними розмірами та кольорами, функція destroyBoxes() очищає контейнер.</p>
+    </div>
+
+    <script>
+        function getRandomHexColor() {
+            return `#${Math.floor(Math.random() * 16777215)
+                .toString(16)
+                .padStart(6, 0)}`;
+        }
+
+        const input = document.querySelector('#controls input');
+        const createBtn = document.querySelector('[data-create]');
+        const destroyBtn = document.querySelector('[data-destroy]');
+        const boxesContainer = document.getElementById('boxes');
+
+        function createBoxes(amount) {
+            console.log(`=== СТВОРЕННЯ ${amount} ЕЛЕМЕНТІВ ===`);
+            
+            // Очищаємо контейнер перед створенням нових елементів
+            boxesContainer.innerHTML = '';
+
+            let size = 30; // Початковий розмір
+
+            for (let i = 0; i < amount; i++) {
+                const box = document.createElement('div');
+                const color = getRandomHexColor();
+                
+                box.style.width = `${size}px`;
+                box.style.height = `${size}px`;
+                box.style.backgroundColor = color;
+                
+                boxesContainer.appendChild(box);
+                
+                console.log(`Елемент ${i + 1}: ${size}px x ${size}px, колір: ${color}`);
+                
+                size += 10; // Збільшуємо розмір для наступного елемента
+            }
+            
+            console.log('Елементи створено');
+            console.log('');
+        }
+
+        function destroyBoxes() {
+            console.log('=== ВИДАЛЕННЯ ЕЛЕМЕНТІВ ===');
+            const count = boxesContainer.children.length;
+            boxesContainer.innerHTML = '';
+            console.log(`Видалено ${count} елементів`);
+            console.log('');
+        }
+
+        createBtn.addEventListener('click', function() {
+            const amount = parseInt(input.value);
+
+            console.log('Натиснуто кнопку Create');
+            console.log(`Значення в input: ${input.value}`);
+
+            // Валідація: перевіряємо чи значення в межах 1-100
+            if (isNaN(amount) || amount < 1 || amount > 100) {
+                alert('Будь ласка, введіть число від 1 до 100');
+                console.log('Помилка валідації: значення має бути від 1 до 100');
+                console.log('');
+                return;
+            }
+
+            createBoxes(amount);
+            input.value = ''; // Очищаємо input
+        });
+
+        destroyBtn.addEventListener('click', function() {
+            console.log('Натиснуто кнопку Destroy');
+            destroyBoxes();
+        });
+
+        // Демонстрація при завантаженні
+        console.log('=== ЗАВДАННЯ 10 - CREATE/DESTROY BOXES ===');
+        console.log('Введіть число від 1 до 100 і натисніть Create');
+        console.log('Кнопка Destroy видаляє всі елементи');
+        console.log('');
+    </script>
+</body>
+</html>

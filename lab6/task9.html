@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 9 - Change Color</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Завдання 9 - Change Color</h1>
+        <p><strong>Умова:</strong> Скрипт, який змінює колір фону елемента body через інлайн-стиль по кліку на кнопку 
+        і задає це значення кольору текстовим вмістом для span.color.</p>
+
+        <div class="widget">
+            <p>Background color: <span class="color">-</span></p>
+            <button type="button" class="change-color">Change color</button>
+        </div>
+
+        <h2>Пояснення:</h2>
+        <p>Використовується функція getRandomHexColor() для генерації випадкового кольору в hex-форматі. 
+        При кліку на кнопку змінюється колір фону body та оновлюється текст span.color.</p>
+    </div>
+
+    <script>
+        function getRandomHexColor() {
+            return `#${Math.floor(Math.random() * 16777215)
+                .toString(16)
+                .padStart(6, 0)}`;
+        }
+
+        const changeColorBtn = document.querySelector('.change-color');
+        const colorSpan = document.querySelector('.color');
+
+        changeColorBtn.addEventListener('click', function() {
+            console.log('=== ЗМІНА КОЛЬОРУ ФОНУ ===');
+            
+            // Отримуємо поточний колір
+            const currentColor = document.body.style.backgroundColor || 'none';
+            console.log(`Поточний колір фону: ${currentColor}`);
+
+            // Генеруємо новий випадковий колір
+            const newColor = getRandomHexColor();
+            console.log(`Новий колір (hex): ${newColor}`);
+
+            // Змінюємо колір фону body
+            document.body.style.backgroundColor = newColor;
+
+            // Оновлюємо текст у span
+            colorSpan.textContent = newColor;
+
+            console.log(`Колір фону змінено на: ${newColor}`);
+            console.log('');
+        });
+
+        // Демонстрація при завантаженні
+        console.log('=== ЗАВДАННЯ 9 - CHANGE COLOR ===');
+        console.log('Натисніть кнопку "Change color" для зміни кольору фону');
+        console.log('Колір генерується у форматі HEX');
+        console.log('');
+    </script>
+</body>
+</html>

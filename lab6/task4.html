@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 4 - Resize Box</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Завдання 4 - Зменшити/Збільшити</h1>
+        <p><strong>Умова:</strong> Кнопка "Зменшити" робить квадрат менше на 15 пікселів. 
+        Кнопка "Збільшити" робить квадрат більше на 15 пікселів. 
+        Повторні натискання продовжують змінювати розмір.</p>
+
+        <div id="box" class="box"></div>
+
+        <div style="text-align: center;">
+            <button id="decreaseBtn">Зменшити</button>
+            <button id="increaseBtn">Збільшити</button>
+        </div>
+
+        <h2>Пояснення:</h2>
+        <p>При натисканні на кнопки змінюється розмір квадрата (width та height) на 15 пікселів. 
+        Розмір зберігається у змінній і оновлюється при кожному натисканні.</p>
+    </div>
+
+    <script>
+        const box = document.getElementById('box');
+        const decreaseBtn = document.getElementById('decreaseBtn');
+        const increaseBtn = document.getElementById('increaseBtn');
+
+        let currentSize = 150; // Початковий розмір
+
+        // Функція оновлення розміру
+        function updateBoxSize() {
+            box.style.width = currentSize + 'px';
+            box.style.height = currentSize + 'px';
+            console.log(`Поточний розмір квадрата: ${currentSize}px x ${currentSize}px`);
+        }
+
+        // Зменшити розмір
+        decreaseBtn.addEventListener('click', function() {
+            console.log('=== ЗМЕНШЕННЯ РОЗМІРУ ===');
+            console.log(`Розмір до зменшення: ${currentSize}px`);
+            
+            if (currentSize > 15) {
+                currentSize -= 15;
+                updateBoxSize();
+                console.log(`Розмір після зменшення: ${currentSize}px`);
+            } else {
+                console.log('Неможливо зменшити далі (мінімум 15px)');
+            }
+            console.log('');
+        });
+
+        // Збільшити розмір
+        increaseBtn.addEventListener('click', function() {
+            console.log('=== ЗБІЛЬШЕННЯ РОЗМІРУ ===');
+            console.log(`Розмір до збільшення: ${currentSize}px`);
+            
+            currentSize += 15;
+            updateBoxSize();
+            console.log(`Розмір після збільшення: ${currentSize}px`);
+            console.log('');
+        });
+
+        // Встановлення початкового розміру
+        updateBoxSize();
+
+        // Демонстрація при завантаженні
+        console.log('=== ЗАВДАННЯ 4 - ЗМЕНШИТИ/ЗБІЛЬШИТИ ===');
+        console.log(`Початковий розмір квадрата: ${currentSize}px x ${currentSize}px`);
+        console.log('Натисніть кнопки для зміни розміру');
+        console.log('');
+    </script>
+</body>
+</html>

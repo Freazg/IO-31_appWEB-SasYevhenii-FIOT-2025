@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 2 - SWAP ME</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Завдання 2 - SWAP ME</h1>
+        <p><strong>Умова:</strong> Після натискання кнопки "SWAP ME" здійснюється обмін вмістом між двома інпутами. 
+        Ви можете натиснути на неї кілька разів або вручну змінити вміст інпутів.</p>
+
+        <div style="margin: 30px 0;">
+            <label for="input1">Перше поле:</label>
+            <input type="text" id="input1" placeholder="Введіть текст">
+
+            <label for="input2">Друге поле:</label>
+            <input type="text" id="input2" placeholder="Введіть текст">
+
+            <button id="swapBtn">SWAP ME</button>
+        </div>
+
+        <h2>Пояснення:</h2>
+        <p>При натисканні на кнопку відбувається обмін значеннями між двома полями введення. 
+        Використовується тимчасова змінна для збереження одного зі значень під час обміну.</p>
+    </div>
+
+    <script>
+        const input1 = document.getElementById('input1');
+        const input2 = document.getElementById('input2');
+        const swapBtn = document.getElementById('swapBtn');
+
+        swapBtn.addEventListener('click', function() {
+            console.log('=== ОБМІН ЗНАЧЕНЬ ===');
+            console.log('До обміну:');
+            console.log(`Поле 1: "${input1.value}"`);
+            console.log(`Поле 2: "${input2.value}"`);
+
+            // Обмін значень через тимчасову змінну
+            const temp = input1.value;
+            input1.value = input2.value;
+            input2.value = temp;
+
+            console.log('Після обміну:');
+            console.log(`Поле 1: "${input1.value}"`);
+            console.log(`Поле 2: "${input2.value}"`);
+            console.log('');
+        });
+
+        // Демонстрація при завантаженні
+        console.log('=== ЗАВДАННЯ 2 - SWAP ME ===');
+        console.log('Введіть текст у два поля і натисніть кнопку SWAP ME');
+        console.log('');
+    </script>
+</body>
+</html>

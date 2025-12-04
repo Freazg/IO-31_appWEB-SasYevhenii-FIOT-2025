@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна робота №6 - Сас Євгеній</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .info-block {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .info-block h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .info-block p {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .tasks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .task-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .task-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        }
+
+        .task-number {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .task-title {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .task-description {
+            color: #666;
+            font-size: 0.9em;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .task-link {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .task-link:hover {
+            background: #764ba2;
+        }
+
+        .section-title {
+            color: white;
+            font-size: 1.8em;
+            margin: 40px 0 20px 0;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .variant-info {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .special-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .special-card .task-title,
+        .special-card .task-description {
+            color: white;
+        }
+
+        .special-card .task-link {
+            background: white;
+            color: #667eea;
+        }
+
+        .special-card .task-link:hover {
+            background: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Лабораторна робота №6</h1>
+            <p class="subtitle">ПРОТОТИПИ. КЛАСИ. DOM. ПОДІЇ. ДЕЛЕГУВАННЯ ПОДІЙ</p>
+            <p class="subtitle">Студент: Сас Євгеній, група ІО-31</p>
+        </header>
+
+        <div class="info-block">
+            <h2>Мета роботи:</h2>
+            <p>Придбати практичні навички роботи з DOM, подіями та делегуванням подій. 
+            Навчитись створювати інтерактивні елементи інтерфейсу та обробляти користувацькі дії.</p>
+        </div>
+
+        <div class="variant-info">
+            <strong>Номер у списку: 20 (парний)</strong><br>
+            Виконані варіанти: 2, 4, 6, 7, 8, 9, 10 + делегування подій (пункт 3)
+        </div>
+
+        <h2 class="section-title">СПЕЦІАЛЬНЕ ЗАВДАННЯ</h2>
+
+        <div class="tasks-grid">
+            <div class="task-card special-card">
+                <div class="task-number">Пункт 3</div>
+                <div class="task-title">Делегування подій (Modal)</div>
+                <div class="task-description">
+                    При виборі елемента в колекції відкривається модальне вікно з описом. 
+                    Використовується делегування подій на батьківському елементі.
+                </div>
+                <a href="task3-modal.html" class="task-link">Відкрити завдання</a>
+            </div>
+        </div>
+
+        <h2 class="section-title">ЗАВДАННЯ З ТАБЛИЦІ</h2>
+
+        <div class="tasks-grid">
+            <div class="task-card">
+                <div class="task-number">Варіант 2</div>
+                <div class="task-title">SWAP ME</div>
+                <div class="task-description">
+                    Обмін вмістом між двома інпутами по кліку на кнопку
+                </div>
+                <a href="task2.html" class="task-link">Відкрити завдання</a>
+            </div>
+
+            <div class="task-card">
+                <div class="task-number">Варіант 4</div>
+                <div class="task-title">Зменшити/Збільшити</div>
+                <div class="task-description">
+                    Зміна розміру квадрата на 15 пікселів при натисканні кнопок
+                </div>
+                <a href="task4.html" class="task-link">Відкрити завдання</a>
+            </div>
+
+            <div class="task-card">
+                <div class="task-number">Варіант 6</div>
+                <div class="task-title">Подвоїти</div>
+                <div class="task-description">
+                    Збільшення значень у списку у 2 рази при кожному натисканні
+                </div>
+                <a href="task6.html" class="task-link">Відкрити завдання</a>
+            </div>
+
+            <div class="task-card">
+                <div class="task-number">Варіант 7</div>
+                <div class="task-title">Categories</div>
+                <div class="task-description">
+                    Підрахунок кількості категорій та елементів у кожній категорії
+                </div>
+                <a href="task7.html" class="task-link">Відкрити завдання</a>
+            </div>
+
+            <div class="task-card">
+                <div class="task-number">Варіант 8</div>
+                <div class="task-title">Login Form</div>
+                <div class="task-description">
+                    Управління формою логіну з валідацією та обробкою submit
+                </div>
+                <a href="task8.html" class="task-link">Відкрити завдання</a>
+            </div>
+
+            <div class="task-card">
+                <div class="task-number">Варіант 9</div>
+                <div class="task-title">Change Color</div>
+                <div class="task-description">
+                    Зміна кольору фону body випадковим hex-кольором
+                </div>
+                <a href="task9.html" class="task-link">Відкрити завдання</a>
+            </div>
+
+            <div class="task-card">
+                <div class="task-number">Варіант 10</div>
+                <div class="task-title">Create/Destroy Boxes</div>
+                <div class="task-description">
+                    Створення та видалення колекції div елементів з випадковими кольорами
+                </div>
+                <a href="task10.html" class="task-link">Відкрити завдання</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

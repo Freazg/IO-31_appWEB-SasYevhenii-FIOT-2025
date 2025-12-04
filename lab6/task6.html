@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 6 - Подвоїти</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Завдання 6 - Подвоїти</h1>
+        <p><strong>Умова:</strong> Натиснувши кнопку "Подвоїти", збільшити значення у кожному елементі списку у 2 рази. 
+        Повторний натиск на кнопці "Подвоїти", також збільшить значення у кожному елементі списку у 2 рази.</p>
+
+        <ul id="numberList">
+            <li>1</li>
+            <li>4</li>
+            <li>8</li>
+            <li>16</li>
+            <li>20</li>
+            <li>30</li>
+        </ul>
+
+        <button id="doubleBtn">Подвоїти</button>
+
+        <h2>Пояснення:</h2>
+        <p>При натисканні на кнопку всі числа в списку множаться на 2. 
+        Використовується querySelectorAll для отримання всіх елементів списку і forEach для їх обробки.</p>
+    </div>
+
+    <script>
+        const doubleBtn = document.getElementById('doubleBtn');
+        const numberList = document.getElementById('numberList');
+
+        doubleBtn.addEventListener('click', function() {
+            console.log('=== ПОДВОЄННЯ ЗНАЧЕНЬ ===');
+            
+            // Отримуємо всі елементи списку
+            const listItems = numberList.querySelectorAll('li');
+            
+            console.log('Значення до подвоєння:');
+            listItems.forEach((item, index) => {
+                console.log(`Елемент ${index + 1}: ${item.textContent}`);
+            });
+            
+            // Подвоюємо кожне значення
+            listItems.forEach((item, index) => {
+                const currentValue = parseInt(item.textContent);
+                const newValue = currentValue * 2;
+                item.textContent = newValue;
+            });
+            
+            console.log('Значення після подвоєння:');
+            listItems.forEach((item, index) => {
+                console.log(`Елемент ${index + 1}: ${item.textContent}`);
+            });
+            console.log('');
+        });
+
+        // Демонстрація при завантаженні
+        console.log('=== ЗАВДАННЯ 6 - ПОДВОЇТИ ===');
+        console.log('Початкові значення:');
+        const items = numberList.querySelectorAll('li');
+        items.forEach((item, index) => {
+            console.log(`Елемент ${index + 1}: ${item.textContent}`);
+        });
+        console.log('Натисніть кнопку "Подвоїти" для збільшення значень у 2 рази');
+        console.log('');
+    </script>
+</body>
+</html>
