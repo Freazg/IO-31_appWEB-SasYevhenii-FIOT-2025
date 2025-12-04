@@ -30,26 +30,23 @@
 
         const changeColorBtn = document.querySelector('.change-color');
         const colorSpan = document.querySelector('.color');
-        const container = document.querySelector('.container');
 
         changeColorBtn.addEventListener('click', function() {
             console.log('=== ЗМІНА КОЛЬОРУ ФОНУ ===');
             
             // Отримуємо поточний колір
-            const currentColor = document.body.style.backgroundColor || 'початковий';
+            const currentColor = document.body.style.backgroundColor || 'gradient';
             console.log(`Поточний колір фону: ${currentColor}`);
 
             // Генеруємо новий випадковий колір
             const newColor = getRandomHexColor();
             console.log(`Новий колір (hex): ${newColor}`);
 
-            // Змінюємо колір фону body та контейнера
-            document.body.style.backgroundColor = newColor;
-            container.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+            // Змінюємо колір фону body (це змінить фон навколо контейнера)
+            document.body.style.background = newColor;
 
             // Оновлюємо текст у span
             colorSpan.textContent = newColor;
-            colorSpan.style.color = newColor;
 
             console.log(`Колір фону змінено на: ${newColor}`);
             console.log('');
